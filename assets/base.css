@@ -34,7 +34,11 @@ button{font-family:var(--sans);cursor:pointer}
 
 /* ---------- announcement marquee ---------- */
 .marquee{background:var(--green);color:#e9f5ee;overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.08);height:var(--marquee-h);display:flex;align-items:center}
-.marquee-track{display:inline-flex;gap:0;padding:9px 0;animation:scrollX 22s linear infinite;will-change:transform}
+/* FIX 14 — marquee lag: messages HTML me hi 4x baked-in hain (neeche markup dekho),
+   koi JS duplication NAHI. Isi liye duration 22s -> 44s: -50% loop ab 2 sets cover
+   karta hai, speed pehle jaisi hi rehti hai. translateZ(0) track ko apni GPU layer
+   par rakhta hai taake animation main thread ke layout se atke nahi. */
+.marquee-track{display:inline-flex;gap:0;padding:9px 0;animation:scrollX 44s linear infinite;will-change:transform;transform:translateZ(0)}
 .marquee span{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:11px;font-weight:800;letter-spacing:.22em}
 .marquee i{color:var(--gold-light);font-style:normal}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -1207,7 +1211,18 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
    Har card me: 5 gold stars (#FFBF00 — product card wale stars jaisa
    rang), review text, bold "ZARAN 50ML", phir reviewer ka naam.
    Carousel ke neeche dot navigation hai — dot click par slide badalti
-   hai. Reviews PLACEHOLDER/sample hain (preview ke liye). */
+   hai. Reviews PLACEHOLDER/sample hain (preview ke liye).
+   REVIEW LANGUAGES (2026-11-04, Hashim ke order par): 5 reviews un
+   bhashaon me hain jin me customers likhte hain — Daniyal Ahmed ka
+   review URDU script me (us card par lang="ur" dir="rtl" + neeche
+   wali .rev-text[lang="ur"] rule: Nastaliq font, RTL, centered,
+   zyada line-height), Abdullah ka ENGLISH me, aur M Haris, Ali
+   Hassan aur Mudassar ke ROMAN URDU me. Matlab sab ka wahi hai jo
+   pehle tha (khushbu, lasting, classy) — sirf bhasha badli hai.
+   Yehi CSS rule theme ke base.css me bhi jati hai (builder preview
+   ki <style> copy karta hai); theme ke reviews.liquid me rev-text
+   par dir="auto" hai, is liye wahan :dir(rtl) selector Urdu review
+   ko khud pehchan kar yehi style lagata hai. */
 .reviews{max-width:1232px;margin:0 auto}
 .rev-viewport{overflow:hidden;padding:30px 8px 34px;margin:-14px -8px 0;touch-action:pan-y;cursor:grab}
 .rev-track.dragging{transition:none}
@@ -1219,6 +1234,11 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
 .rev-stars{display:flex;justify-content:center;gap:3px}
 .rev-stars svg{width:17px;height:17px;color:#FFBF00;display:block}
 .rev-text{color:#33302a;font-size:15.5px;line-height:1.65;margin:20px 0 0}
+/* Urdu-script review (Daniyal Ahmed) — RTL, Nastaliq font, centered,
+   zyada line-height taake Nastaliq ke haroof clip na hon. Baqi 4
+   reviews par koi asar nahi: selector sirf lang="ur" (preview) ya
+   :dir(rtl) (theme, dir="auto" se) wale paragraph ko lagta hai. */
+.rev-text[lang="ur"],.rev-text:dir(rtl){direction:rtl;text-align:center;font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;font-size:16px;line-height:2.15}
 .rev-prod{font-weight:800;font-size:15px;letter-spacing:.05em;color:#141310;margin-top:auto;padding-top:24px}
 .rev-name{color:var(--muted);font-size:14px;margin-top:5px}
 .rev-dots{display:flex;justify-content:center;gap:9px;margin-top:4px}

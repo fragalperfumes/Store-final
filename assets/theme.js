@@ -36,7 +36,7 @@
   }
   window.addEventListener('scroll', hdrOnScroll, { passive:true });
   window.addEventListener('resize', hdrOnScroll);
-  var track = document.getElementById('marqueeTrack'); if(track){ track.innerHTML += track.innerHTML; }
+  /* marquee: messages announcement-bar.liquid me hi 4x baked-in hain — theme.js runtime par koi duplication NAHI karta (fix 14: purana innerHTML doubling CSS animation start hone ke BAAD track ki width badal deta tha, jis se running line har page load par ek jhatka/jump leti thi — lag) */
   /* mobile nav drawer — right slide-in */
   var navDrawer = document.getElementById('navDrawer'), navScrim = document.getElementById('navScrim'), menuBtn = document.getElementById('menuBtn');
   function openNav(){ if(!navDrawer) return; navDrawer.classList.add('open'); if(navScrim) navScrim.classList.add('on'); document.body.style.overflow = 'hidden'; if(menuBtn) menuBtn.setAttribute('aria-expanded','true'); }
