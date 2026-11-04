@@ -45,13 +45,8 @@
   var navClose = document.getElementById('navClose'); if(navClose) navClose.addEventListener('click', closeNav);
   if(navScrim) navScrim.addEventListener('click', closeNav);
   if(navDrawer) navDrawer.addEventListener('click', function(e){ if(e.target.closest('a')) closeNav(); });
-  /* logo click — FIX 11 (pack11): HAR click par asal page reload (preview jaisa). User ki final request: logo jab bhi click ho — top par ho, neeche scroll ho, drawer khula ho ya band — hamesha refresh. Is liye default home-link navigation bhi roki jati hai (preventDefault) aur location.reload() chalti hai. */
+  /* logo click — FIX 12 (pack12): header aur drawer ke logos ASAL home links hain (header.liquid me href = routes.root_url) aur theme.js unhe bilkul NAHI rokta — yahan koi logo handler hi nahi. Kisi bhi page (Contact, product, policy page) par logo click = MAIN home page poori tarah load hota hai, bilkul wesay jesy website naye siray se kholi ho; home page par logo click = home page dobara load. Pack11 ka preventDefault + forced same-page refresh HATA diya gaya: us se logo WAHI page refresh kar deta tha jis par user hota tha, home nahi khulta tha. */
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('[data-logo-scroll]').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault(); window.location.reload();
-    });
-  });
   /* active nav highlight — scroll-spy (preview wale 6 tabs) */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('#mainNav a, .drawer-links a'));
   var MAP = { home:'HOME', shop:'SHOP ALL', reviews:'REVIEWS', about:'WHY FRAGAL', faq:'FAQ', contact:'CONTACT US' };

@@ -876,12 +876,14 @@ section[id],footer[id],main[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
   .nav-drawer .header-wordmark{height:34px;max-width:148px}
 }
 
-/* ---------- LOGO BUTTON — har click par reload, SIRF DO JAGAH ----------
-   FRAGAL PERFUMES logo ab <button data-logo-scroll> hai — koi href,
-   koi navigation nahi. Jab bhi click kiya jaye — page top par ho ya
-   neeche scroll ho — page hamesha refresh (reload) hota hai
-   (user ki request 2026-11-04: "jb b use click kia jay refresh hi ho").
-   Drawer wala logo bhi har click par reload karta hai.
+/* ---------- LOGO BUTTON — click = MAIN HOME PAGE fresh, SIRF DO JAGAH ----------
+   FRAGAL PERFUMES logo <button data-logo-scroll> hai. Click karne
+   par WAHI view refresh NAHI hota — MAIN home page khulta hai
+   bilkul wesay jesy website naye siray se kholi ho: home view,
+   sab se upar se, asal reload ke sath (user ki final request
+   2026-11-04, pack12 — pack11 wala sirf-reload isi liye badla:
+   user kisi bhi page/view par ho, logo use home par le jaye).
+   Drawer wala logo bhi yehi karta hai.
    Ye SIRF (1) main header ke logo par aur (2) mobile drawer
    (3-lines menu) ke andar wale logo par hai. Hero section ka logo
    plain <img> hi rehta hai aur footer ke logo par ye bilkul nahi. */

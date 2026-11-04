@@ -1,5 +1,5 @@
 FRAGAL PERFUMES — Shopify theme
-Build: 2026-11-04-pack11
+Build: 2026-11-04-pack12
 
 Included in this build:
 1. Footer page templates: Shipping, Return & Refund, Exchange, Cancellation, Privacy, Terms, FAQ (templates/page.*.json)
@@ -12,4 +12,4 @@ Included in this build:
 8. SHOP ALL scroll target fixed: the BEST SELLER PERFUME heading now sits inside the #shop section (no separate heading section), so it lands fully visible too
 9. Mobile header show-on-scroll-up fixed properly: direction is now measured from an anchor position (where the header last changed state), not from the previous scroll event — the first upward movement brings the header back immediately, even in a slow scroll
 10. Header sticky on Shopify fixed: the header section wrapper (#shopify-section-header) is now position:sticky, so the header stays pinned like in the preview instead of scrolling away with the page; the announcement marquee still scrolls away normally
-11. Logo click reloads the page: the header logo and the mobile drawer logo now refresh the page on EVERY click (location.reload), exactly like the preview — no scroll-to-top, no navigation
+11. Logo click opens the HOME page: the header logo and the mobile drawer logo are real links to the store home page — clicking the logo on ANY page (Contact, a product, a policy page) opens the main home page with a full page load, exactly like opening the site fresh. (This replaces the pack11 behaviour, which only refreshed the page you were already on.)

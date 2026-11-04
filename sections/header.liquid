@@ -1,7 +1,7 @@
 {% assign zp = collections.all.products.first %}
 <header class="site">
   <div class="header-in">
-    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — reload the page">
+    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — back to the home page">
       {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 480 }}" alt="FRAGAL PERFUMES">
       {% else %}<img class="header-wordmark" src="{{ 'header-wordmark-transparent-v1.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
     </a>
@@ -48,7 +48,7 @@
 <div class="nav-scrim" id="navScrim"></div>
 <aside class="nav-drawer" id="navDrawer" aria-label="Mobile menu">
   <div class="nav-drawer-head">
-    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — reload the page">
+    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — back to the home page">
       {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 400 }}" alt="FRAGAL PERFUMES">
       {% else %}<img class="header-wordmark" src="{{ 'header-wordmark.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
     </a>
