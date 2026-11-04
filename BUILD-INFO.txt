@@ -1,0 +1,15 @@
+FRAGAL PERFUMES — Shopify theme
+Build: 2026-11-04-pack11
+
+Included in this build:
+1. Footer page templates: Shipping, Return & Refund, Exchange, Cancellation, Privacy, Terms, FAQ (templates/page.*.json)
+2. 100% English across the whole theme — reviews, buttons, cart and error messages
+3. Mobile header: hides on scroll down, reappears instantly on scroll up
+4. Offer banner: SHOP NOW button sits below the LAUNCH OFFER text
+5. FAQ section: no VIEW ALL FAQS button
+6. Hero image: full-resolution srcset (941w / 1400w) — sharp on mobile
+7. Nav anchor scroll offset: every section heading lands fully visible below the header (PC + mobile)
+8. SHOP ALL scroll target fixed: the BEST SELLER PERFUME heading now sits inside the #shop section (no separate heading section), so it lands fully visible too
+9. Mobile header show-on-scroll-up fixed properly: direction is now measured from an anchor position (where the header last changed state), not from the previous scroll event — the first upward movement brings the header back immediately, even in a slow scroll
+10. Header sticky on Shopify fixed: the header section wrapper (#shopify-section-header) is now position:sticky, so the header stays pinned like in the preview instead of scrolling away with the page; the announcement marquee still scrolls away normally
+11. Logo click reloads the page: the header logo and the mobile drawer logo now refresh the page on EVERY click (location.reload), exactly like the preview — no scroll-to-top, no navigation

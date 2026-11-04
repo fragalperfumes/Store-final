@@ -1,0 +1,58 @@
+<footer id="contact" class="screen-f lux-foot">
+  <div class="lux-in">
+    <div class="lux-brand">
+      <div class="lux-word">FRAGAL</div>
+      <div class="lux-sub"><i></i><span class="lux-sub-txt">PERFUMES</span><i></i></div>
+      <div class="lux-tag">&#10022; SCENTS THAT STAY &#10022;</div>
+    </div>
+    <div class="lux-divider" aria-hidden="true"><span class="lux-line"></span><span class="lux-diamond"></span><span class="lux-line"></span></div>
+    <div class="lux-cols">
+      <div class="lux-col">
+        <h5>SHOP</h5>
+        <ul>
+          <li><a href="/collections/all">Shop All</a></li>
+          <li>{% assign zp = collections.all.products.first %}<a href="{% if zp %}{{ zp.url }}{% else %}#shop{% endif %}">ZARAN 50ML</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="lux-col">
+        <h5>SUPPORT</h5>
+        <ul>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+          <li><a href="/pages/return-refund-policy">Return &amp; Refund Policy</a></li>
+          <li><a href="/pages/exchange-policy">Exchange Policy</a></li>
+          <li><a href="/pages/cancellation-policy">Cancellation Policy</a></li>
+        </ul>
+      </div>
+      <div class="lux-col">
+        <h5>HOUSE</h5>
+        <ul>
+          <li><a href="/pages/about-us">About Us</a></li>
+          <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/pages/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="lux-col">
+        <h5>GET IN TOUCH</h5>
+        <ul class="lux-contact">
+          <li><span class="lux-clabel">WhatsApp</span><a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">{{ settings.whatsapp_display }}</a></li>
+          <li><span class="lux-clabel">Email</span><a href="mailto:info@fragalperfumes.pk">info@fragalperfumes.pk</a></li>
+        </ul>
+        <div class="lux-socials">
+          <a href="https://www.instagram.com/fragal.pk" target="_blank" rel="noopener" aria-label="Instagram — @fragal.pk"><img src="{{ 'social-instagram.svg' | asset_url }}" alt="Instagram" width="20" height="20"></a>
+          <a href="https://www.facebook.com/fragal.pk" target="_blank" rel="noopener" aria-label="Facebook — Fragal Perfumes"><img src="{{ 'social-facebook.svg' | asset_url }}" alt="Facebook" width="20" height="20"></a>
+          <a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="{{ 'social-whatsapp.svg' | asset_url }}" alt="WhatsApp" width="20" height="20"></a>
+          <a href="https://www.tiktok.com/@fragal.pk" target="_blank" rel="noopener" aria-label="TikTok — @fragal.pk"><img src="{{ 'social-tiktok.svg' | asset_url }}" alt="TikTok" width="19" height="19"></a>
+        </div>
+      </div>
+    </div>
+    <div class="lux-base">
+      <span>&copy; {{ 'now' | date: '%Y' }} FRAGAL Perfumes — Made in Pakistan. All Rights Reserved.</span>
+      <span>Official Fragal Perfumes store — we sell online only at fragalperfumes.pk</span>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{ "name": "Footer", "settings": [] }
+{% endschema %}

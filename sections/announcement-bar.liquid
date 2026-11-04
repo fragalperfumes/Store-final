@@ -1,0 +1,13 @@
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span><i>&#10022;</i> {{ section.settings.text_1 }}</span><span><i>&#10022;</i> {{ section.settings.text_2 }}</span><span><i>&#10022;</i> {{ section.settings.text_3 }}</span>
+    <span><i>&#10022;</i> {{ section.settings.text_1 }}</span><span><i>&#10022;</i> {{ section.settings.text_2 }}</span><span><i>&#10022;</i> {{ section.settings.text_3 }}</span>
+  </div>
+</div>
+{% schema %}
+{ "name": "Announcement marquee", "settings": [
+  { "type": "text", "id": "text_1", "label": "Message 1", "default": "ZARAN 50ML — NOW PKR 2,499 — OFF 38%" },
+  { "type": "text", "id": "text_2", "label": "Message 2", "default": "FRAGAL PERFUMES" },
+  { "type": "text", "id": "text_3", "label": "Message 3", "default": "SCENTS THAT STAY" }
+] }
+{% endschema %}

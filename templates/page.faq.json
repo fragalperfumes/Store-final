@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-faq",
+        "crumb": "FAQ",
+        "head_html": "<div class=\"pv-head\"><h1>FAQ</h1><div class=\"gold-rule\"></div><p>The essentials about ZARAN, ordering and delivery — without the runaround.</p></div>",
+        "body_html": "<div class=\"pv-faq\"><div class=\"faq-list\"><div class=\"faq-item open\"><button class=\"faq-q\" aria-expanded=\"true\">Can I spray ZARAN directly on my skin?<span class=\"chev\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button><div class=\"faq-a\"><p>We recommend spraying ZARAN on your clothes instead of directly on skin — collar, chest or sleeves. It sits better on fabric and stays longer.</p></div></div><div class=\"faq-item\"><button class=\"faq-q\" aria-expanded=\"false\">What is your refund policy?<span class=\"chev\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button><div class=\"faq-a\"><p>Easy 15-day refund. The bottle must have at least 90% of the perfume remaining — message us on WhatsApp to start your return.</p></div></div><div class=\"faq-item\"><button class=\"faq-q\" aria-expanded=\"false\">How long does the fragrance last?<span class=\"chev\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button><div class=\"faq-a\"><p>ZARAN is made to linger — sprayed on clothes, it stays noticeable for 8+ hours, living up to our promise: Scents That Stay.</p></div></div><div class=\"faq-item\"><button class=\"faq-q\" aria-expanded=\"false\">How can I place an order?<span class=\"chev\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"><path d=\"m6 9 6 6 6-6\"/></svg></span></button><div class=\"faq-a\"><p>Tap ADD TO CART or BUY NOW on the ZARAN 50ML card — on the home page or in Shop All.</p></div></div></div></div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

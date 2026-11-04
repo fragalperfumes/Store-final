@@ -1,0 +1,216 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-brand",
+      "settings": {}
+    },
+    "tiles": {
+      "type": "category-tiles",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "cat-bestseller-v2.webp",
+            "title": "Best Seller",
+            "button_label": "Shop Now",
+            "link": "#shop",
+            "coming_soon": false
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "cat-mens-tilted.webp",
+            "title": "Men's Perfumes",
+            "button_label": "Shop Now",
+            "link": "#shop",
+            "coming_soon": false
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "cat-womens-v2.webp",
+            "title": "Women's Perfumes",
+            "button_label": "Coming Soon",
+            "link": "#shop",
+            "coming_soon": true
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "cat-unisex-v2.webp",
+            "title": "Unisex Perfumes",
+            "button_label": "Coming Soon",
+            "link": "#shop",
+            "coming_soon": true
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-product",
+      "settings": {
+        "heading": "BEST SELLER PERFUME"
+      }
+    },
+    "offer": {
+      "type": "offer-banner",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "text": "Such a beautiful fragrance — I applied it in the morning and could still smell it on my clothes by the evening. Highly recommended!",
+            "name": "Ahmed R."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "text": "Just seeing the packaging made me happy. The fragrance is not harsh at all, it is classy — perfect for the office.",
+            "name": "Bilal K."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "text": "The fragrance is truly classy and elegant. It is long lasting — my friends asked which perfume I was wearing.",
+            "name": "Usman T."
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "text": "I bought it as a gift — the box is so elegant that I did not even need any wrapping.",
+            "name": "Hamza S."
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "text": "A fresh start, then a soft, sweet scent — I feel fresh all day. Worth every rupee.",
+            "name": "Daniyal M."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "settings": {}
+    },
+    "why": {
+      "type": "why-fragal",
+      "blocks": {
+        "w1": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 21.5a6.8 6.8 0 0 0 6.8-6.8c0-2.6-1.7-5-3.4-7.1C14 5.9 12.9 4.4 12 2.6c-.9 1.8-2 3.3-3.4 5C6.9 9.7 5.2 12.1 5.2 14.7A6.8 6.8 0 0 0 12 21.5Z\"/><path d=\"M9.2 14.8a3 3 0 0 0 2 3.4\"/></svg>",
+            "title": "ONE SIGNATURE SCENT",
+            "text": "FRAGAL is a single-fragrance house. All of our attention goes into ZARAN — nothing is spread thin across a catalogue."
+          }
+        },
+        "w2": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2.5 6.5A1.5 1.5 0 0 1 4 5h9.5v11h-11Z\"/><path d=\"M13.5 9.5h3.6l3.4 3.8V16h-7\"/><path d=\"M2.5 16h11\"/><circle cx=\"6.6\" cy=\"17.8\" r=\"1.9\"/><circle cx=\"16.9\" cy=\"17.8\" r=\"1.9\"/></svg>",
+            "title": "NATIONWIDE REACH",
+            "text": "Delivery is available across Pakistan. Options, charges and timelines are confirmed when you check out."
+          }
+        },
+        "w3": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.83 9.83 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.13-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z\"/></svg>",
+            "title": "DIRECT SUPPORT",
+            "text": "Message us on WhatsApp before and after your order — quick answers, no ticket queues."
+          }
+        },
+        "w4": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"/><path d=\"M12 8v13\"/><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\"/><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5\"/></svg>",
+            "title": "CONSIDERED PRESENTATION",
+            "text": "Black, gold and nothing loud. ZARAN arrives in packaging designed to be kept — or gifted."
+          }
+        }
+      },
+      "block_order": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-section",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I spray ZARAN directly on my skin?",
+            "answer": "We recommend spraying ZARAN on your clothes instead of directly on skin — collar, chest or sleeves. It sits better on fabric and stays longer."
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "What is your refund policy?",
+            "answer": "Easy 15-day refund. The bottle must have at least 90% of the perfume remaining — message us on WhatsApp to start your return."
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does the fragrance last?",
+            "answer": "ZARAN is made to linger — sprayed on clothes, it stays noticeable for 8+ hours, living up to our promise: Scents That Stay."
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "How can I place an order?",
+            "answer": "Tap ADD TO CART or BUY NOW on the ZARAN card above."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "tiles",
+    "featured",
+    "offer",
+    "reviews",
+    "why",
+    "faq",
+    "cta"
+  ]
+}

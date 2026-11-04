@@ -1,0 +1,42 @@
+<div class="pd-wrap">
+  <div class="pd-top">
+    <a class="pd-back" href="{{ routes.root_url }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+      Back
+    </a>
+    <nav class="pd-crumb" aria-label="Breadcrumb">Home &nbsp;/&nbsp; <b>{{ collection.title }}</b></nav>
+  </div>
+  <div class="pv-head">
+    <h1>{{ collection.title | upcase }}</h1>
+    <div class="gold-rule"></div>
+    {% if collection.description %}<p>{{ collection.description | strip_html }}</p>{% endif %}
+  </div>
+  {% paginate collection.products by 24 %}
+  <div class="shop-grid">
+    {% for prod in collection.products %}
+    <article class="pcard">
+      <div class="pcard-media">
+        {% if prod.compare_at_price > prod.price %}<span class="pcard-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.6 3.6 21 12l-9 9-8.4-8.4A2 2 0 0 1 3 11.2V4a1 1 0 0 1 1-1h7.2a2 2 0 0 1 1.4.6Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg> 38% OFF</span>{% endif %}
+        <a href="{{ prod.url }}" aria-label="Open the {{ prod.title | escape }} product page">
+          {% if prod.featured_image %}<img src="{{ prod.featured_image | image_url: width: 900 }}" alt="{{ prod.title | escape }}" loading="lazy">{% endif %}
+        </a>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">{{ prod.title }}</h3>
+        <div class="pcard-price">
+          <span class="now">{{ prod.price | money }}</span>
+          {% if prod.compare_at_price > prod.price %}<span class="was">{{ prod.compare_at_price | money }}</span>{% endif %}
+        </div>
+        <div class="pcard-stars" role="img" aria-label="5 gold stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+        <button class="btn pcard-add" type="button" data-add-to-cart data-variant-id="{{ prod.selected_or_first_available_variant.id }}">ADD TO CART</button>
+        <button class="btn pcard-buy" type="button" data-add-to-cart data-variant-id="{{ prod.selected_or_first_available_variant.id }}">BUY NOW</button>
+      </div>
+    </article>
+    {% else %}
+    <p>No products in this collection yet.</p>
+    {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}<div style="margin-top:28px;text-align:center">{{ paginate | default_pagination }}</div>{% endif %}
+  {% endpaginate %}
+</div>
+{% schema %}{ "name": "Main collection", "settings": [] }{% endschema %}

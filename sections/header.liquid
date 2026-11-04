@@ -1,0 +1,78 @@
+{% assign zp = collections.all.products.first %}
+<header class="site">
+  <div class="header-in">
+    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — reload the page">
+      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 480 }}" alt="FRAGAL PERFUMES">
+      {% else %}<img class="header-wordmark" src="{{ 'header-wordmark-transparent-v1.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
+    </a>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="main" id="mainNav">
+    <a href="{{ routes.root_url }}#home" class="active">HOME</a>
+      <a href="{{ routes.root_url }}#shop">SHOP ALL</a>
+      <a href="{{ routes.root_url }}#reviews">REVIEWS</a>
+      <a href="{{ routes.root_url }}#about">WHY FRAGAL</a>
+      <a href="{{ routes.root_url }}#faq">FAQ</a>
+      <a href="{{ routes.root_url }}#contact">CONTACT US</a>
+    </nav>
+    <div class="head-icons">
+      <button class="icon-btn" id="searchBtn" aria-label="Search" aria-expanded="false" aria-controls="searchPanel" aria-haspopup="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      </button>
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>
+        <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+  <div class="search-panel" id="searchPanel" role="search"
+    data-prod-name="{% if zp %}{{ zp.title | escape }}{% else %}ZARAN 50ML{% endif %}"
+    data-prod-sub="Men's Perfume · Fresh &amp; Floral"
+    data-prod-url="{% if zp %}{{ zp.url }}{% else %}#shop{% endif %}"
+    data-prod-img="{% if zp and zp.featured_image %}{{ zp.featured_image | image_url: width: 200 }}{% else %}{{ 'zaran-luxury-web.webp' | asset_url }}{% endif %}"
+    data-prod-price="{% if zp %}{{ zp.price | money }}{% else %}Rs. 2,499.00{% endif %}"
+    data-prod-was="{% if zp and zp.compare_at_price > zp.price %}{{ zp.compare_at_price | money }}{% else %}Rs. 3,999.00{% endif %}">
+    <div class="search-inner">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+        <input type="search" id="searchInput" placeholder="Search products &amp; pages — zaran, shipping, returns…" autocomplete="off" enterkeyhint="search" aria-label="Search products and pages">
+        <button type="button" class="search-close" id="searchClose" aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile menu">
+  <div class="nav-drawer-head">
+    <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — reload the page">
+      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 400 }}" alt="FRAGAL PERFUMES">
+      {% else %}<img class="header-wordmark" src="{{ 'header-wordmark.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
+    </a>
+    <button class="nav-close" id="navClose" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-links">
+    <a href="{{ routes.root_url }}#home" class="active">HOME</a>
+      <a href="{{ routes.root_url }}#shop">SHOP ALL</a>
+      <a href="{{ routes.root_url }}#reviews">REVIEWS</a>
+      <a href="{{ routes.root_url }}#about">WHY FRAGAL</a>
+      <a href="{{ routes.root_url }}#faq">FAQ</a>
+      <a href="{{ routes.root_url }}#contact">CONTACT US</a>
+  </nav>
+  <div class="drawer-socials">
+    <a href="https://instagram.com/fragal.pk" target="_blank" rel="noopener" aria-label="Instagram — @fragal.pk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://facebook.com/fragal.pk" target="_blank" rel="noopener" aria-label="Facebook — Fragal Perfumes"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.5h-2.6C11.7 2.5 11 4.4 11 6.5v2H8.5V12H11v9.5h3V12h2.6l.4-3.5H14z"/></svg></a>
+    <a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener" aria-label="WhatsApp — {{ settings.whatsapp_display }}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+    <a href="https://tiktok.com/@fragal.pk" target="_blank" rel="noopener" aria-label="TikTok — @fragal.pk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"/></svg></a>
+  </div>
+</aside>
+{% schema %}
+{ "name": "Header", "settings": [
+  { "type": "image_picker", "id": "logo", "label": "Logo image (leave empty to use the theme transparent wordmark)" }
+] }
+{% endschema %}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ shop.name }} — Gift Card</title>
+{{ content_for_header }}
+{{ 'base.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+<div class="page-wrap" style="text-align:center">
+  <h1>Gift Card</h1>
+  <p class="rte">{{ gift_card.balance | money }} — {{ gift_card.code | format_code }}</p>
+  {% if gift_card.qr_identifier %}<img src="{{ gift_card.qr_identifier | qr_code_url }}" alt="QR code" style="margin:20px auto">{% endif %}
+</div>
+</body>
+</html>

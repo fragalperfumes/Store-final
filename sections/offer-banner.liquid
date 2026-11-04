@@ -1,0 +1,14 @@
+<div class="wrap offer-banner-wrap">
+  <section class="offer-banner" aria-label="Launch offer — 38% off ZARAN 50ML">
+    {% if section.settings.image != blank %}<img class="photo" src="{{ section.settings.image | image_url: width: 2000 }}" alt="FRAGAL PERFUMES ZARAN bottle with golden smoke — 38% OFF launch offer" loading="lazy">
+    {% else %}<img class="photo" src="{{ 'zaran-launch-banner-web.webp' | asset_url }}" alt="FRAGAL PERFUMES ZARAN bottle with golden smoke — 38% OFF launch offer" loading="lazy">{% endif %}
+    <a class="btn btn-gold offer-shop" href="#shop">SHOP NOW
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+    </a>
+  </section>
+</div>
+{% schema %}
+{ "name": "Offer banner", "settings": [
+  { "type": "image_picker", "id": "image", "label": "Banner photo (leave empty to use the theme asset)" }
+], "presets": [{ "name": "Offer banner" }] }
+{% endschema %}

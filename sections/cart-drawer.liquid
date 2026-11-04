@@ -1,0 +1,17 @@
+<div class="scrim" id="cartScrim"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <header>
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </header>
+  <div class="items" id="cartItems"></div>
+  <footer id="cartFooter">
+    <div class="total"><span>Total</span><b id="cartTotal">Rs. 0.00</b></div>
+    <a class="btn btn-gold" href="/checkout">CHECKOUT</a>
+  </footer>
+</aside>
+{% schema %}
+{ "name": "Cart drawer", "settings": [] }
+{% endschema %}

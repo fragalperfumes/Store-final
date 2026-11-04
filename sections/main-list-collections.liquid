@@ -1,0 +1,9 @@
+<div class="page-wrap" style="max-width:1100px">
+  <h1>Collections</h1>
+  <div class="collection-grid" style="margin-top:26px">
+    {% for col in collections %}
+    <div class="p-card"><a href="{{ col.url }}">{% if col.featured_image %}<img src="{{ col.featured_image | image_url: width: 800 }}" alt="{{ col.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ col.url }}">{{ col.title }}</a></h3></div></div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}{ "name": "Main list collections", "settings": [] }{% endschema %}

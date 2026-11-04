@@ -1,0 +1,25 @@
+<section class="cat-tiles" aria-label="Shop by category">
+  {% for block in section.blocks %}
+  <article class="cat-tile" {{ block.shopify_attributes }}>
+    {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+    {% else %}<img src="{{ block.settings.fallback_asset | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">{% endif %}
+    <div class="cat-tile-in">
+      <h3>{{ block.settings.title }}</h3>
+      {% if block.settings.coming_soon %}<span class="cat-btn cat-btn-soon" aria-disabled="true">{{ block.settings.button_label }}</span>
+      {% else %}<a class="cat-btn" href="{{ block.settings.link }}">{{ block.settings.button_label }}</a>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% schema %}
+{ "name": "Category tiles", "blocks": [
+  { "type": "tile", "name": "Tile", "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "fallback_asset", "label": "Fallback theme asset (used when no photo is selected)" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "text", "id": "link", "label": "Button link", "default": "#shop" },
+    { "type": "checkbox", "id": "coming_soon", "label": "Coming soon (button disabled)", "default": false }
+  ] }
+], "presets": [{ "name": "Category tiles" }] }
+{% endschema %}

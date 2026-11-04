@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-cancellation",
+        "crumb": "Cancellation Policy",
+        "head_html": "<div class=\"pv-head\"><h1>CANCELLATION POLICY</h1><div class=\"gold-rule\"></div></div>",
+        "body_html": "<div class=\"pv-prose\">\n  <h3>Before Dispatch</h3>\n  <p>You can cancel your order any time before it is dispatched — just message us on WhatsApp at <a href=\"https://wa.me/923084456947\" target=\"_blank\" rel=\"noopener\">+92 308 4456947</a>.</p>\n  <h3>After Dispatch</h3>\n  <p>Once your order has been dispatched, it can no longer be cancelled. If you'd like to send it back, our Return &amp; Refund Policy applies.</p>\n</div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

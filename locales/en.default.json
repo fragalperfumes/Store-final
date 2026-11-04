@@ -1,0 +1,27 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_text": "Skip to content"
+    },
+    "search": {
+      "search": "Search"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "quantity": "Quantity"
+    }
+  },
+  "sections": {
+    "cart": {
+      "title": "Your Cart",
+      "checkout": "Checkout"
+    }
+  },
+  "customer": {
+    "accounts": {
+      "title": "Account"
+    }
+  }
+}

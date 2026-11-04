@@ -1,0 +1,19 @@
+<div class="page-wrap">
+  <h1>Search</h1>
+  <form action="{{ routes.search_url }}" method="get" style="display:flex;gap:10px;margin:20px 0 30px">
+    <input class="shopify-input" style="margin:0" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search the store" aria-label="Search">
+    <button class="btn btn-gold" type="submit">SEARCH</button>
+  </form>
+  {% if search.performed %}
+  <div class="collection-grid">
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+      <div class="p-card"><a href="{{ item.url }}">{% if item.featured_image %}<img src="{{ item.featured_image | image_url: width: 800 }}" alt="{{ item.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ item.url }}">{{ item.title }}</a></h3><div class="p-price">{{ item.price | money }}</div></div></div>
+      {% endif %}
+    {% else %}
+    <p>No results found.</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% schema %}{ "name": "Main search", "settings": [] }{% endschema %}

@@ -1,0 +1,26 @@
+<section id="about" class="screen">
+  <div class="sec-head">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="gold-rule"></div>
+    <p>{{ section.settings.subtext }}</p>
+  </div>
+  <div class="wrap">
+    <div class="why">
+      {% for block in section.blocks %}
+      <div class="card" {{ block.shopify_attributes }}><div class="ic">{{ block.settings.icon_svg }}</div><h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Why FRAGAL", "settings": [
+  { "type": "text", "id": "heading", "label": "Heading", "default": "WHY CHOOSE FRAGAL?" },
+  { "type": "text", "id": "subtext", "label": "Subtext", "default": "No inflated claims — just the way we choose to work." }
+], "blocks": [
+  { "type": "card", "name": "Card", "settings": [
+    { "type": "html", "id": "icon_svg", "label": "Icon (inline SVG)" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "textarea", "id": "text", "label": "Text" }
+  ] }
+], "presets": [{ "name": "Why FRAGAL" }] }
+{% endschema %}

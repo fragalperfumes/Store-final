@@ -1,0 +1,33 @@
+<section id="faq" class="screen">
+  <div class="wrap">
+    <div class="faq">
+      <div>
+        <div class="eyebrow">GOOD TO KNOW</div>
+        <h2>QUESTIONS,<br><span class="faq-gold">ANSWERED.</span></h2>
+        <div class="gold-rule" style="margin-left:0"></div>
+        <p class="lead">The essentials about ZARAN, ordering and delivery — without the runaround.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="https://wa.me/{{ settings.whatsapp_number }}?text=Hello!%20I%20have%20a%20question%20about%20ZARAN%2050ML." target="_blank" rel="noopener">ASK ON WHATSAPP</a>
+        </div>
+      </div>
+      <div class="faq-list" id="faqList">
+        {% for block in section.blocks %}
+        <div class="faq-item{% if forloop.first %} open{% endif %}" {{ block.shopify_attributes }}>
+          <button class="faq-q" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">{{ block.settings.question }}
+            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a"><p>{{ block.settings.answer }}</p></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "FAQ", "blocks": [
+  { "type": "qa", "name": "Question", "settings": [
+    { "type": "text", "id": "question", "label": "Question" },
+    { "type": "textarea", "id": "answer", "label": "Answer" }
+  ] }
+], "presets": [{ "name": "FAQ" }] }
+{% endschema %}

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-returns",
+        "crumb": "Return & Refund Policy",
+        "head_html": "<div class=\"pv-head\"><h1>RETURN & REFUND POLICY</h1><div class=\"gold-rule\"></div></div>",
+        "body_html": "<div class=\"pv-prose\">\n  <p>We want you to shop with confidence at Fragal Perfumes. If you're not satisfied, we're here to help.</p>\n  <h3>Return Eligibility:</h3>\n  <ul>\n    <li>Returns are accepted within 15 days of delivery.</li>\n    <li>The product must have at least 90% remaining, in its original condition and packaging.</li>\n  </ul>\n  <h3>Return Process:</h3>\n  <ul>\n    <li>To request a return, WhatsApp us at <a href=\"https://wa.me/923084456947\" target=\"_blank\" rel=\"noopener\">+92 308 4456947</a>.</li>\n    <li>Our team will assist you step by step.</li>\n    <li>Returns are processed within 7 working days after approval.</li>\n  </ul>\n  <h3>Refund Details:</h3>\n  <ul>\n    <li>Delivery charges from the original order are non-refundable.</li>\n    <li>Refunds will be issued to your bank account after the returned product has been inspected.</li>\n    <li>In case of a damaged, leaked or wrong product, you get a full refund including delivery charges.</li>\n  </ul>\n</div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
