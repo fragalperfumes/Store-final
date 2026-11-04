@@ -1,7 +1,8 @@
 <section class="cat-tiles" aria-label="Shop by category">
   {% for block in section.blocks %}
   <article class="cat-tile" {{ block.shopify_attributes }}>
-    {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+    {% if block.settings.image != blank %}<img src="{{ block.settings.image | image_url: width: 640 }}" srcset="{{ block.settings.image | image_url: width: 640 }} 640w, {{ block.settings.image | image_url: width: 1080 }} 1080w" sizes="(max-width: 700px) 100vw, 25vw" alt="{{ block.settings.title | escape }}" loading="lazy">
+    {% elsif block.settings.fallback_small != blank %}<img src="{{ block.settings.fallback_small | asset_url }}" srcset="{{ block.settings.fallback_small | asset_url }} 640w, {{ block.settings.fallback_asset | asset_url }} 1080w" sizes="(max-width: 700px) 100vw, 25vw" alt="{{ block.settings.title | escape }}" loading="lazy">
     {% else %}<img src="{{ block.settings.fallback_asset | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">{% endif %}
     <div class="cat-tile-in">
       <h3>{{ block.settings.title }}</h3>
@@ -16,6 +17,7 @@
   { "type": "tile", "name": "Tile", "settings": [
     { "type": "image_picker", "id": "image", "label": "Photo" },
     { "type": "text", "id": "fallback_asset", "label": "Fallback theme asset (used when no photo is selected)" },
+    { "type": "text", "id": "fallback_small", "label": "Fallback small variant (640w, for mobile srcset)" },
     { "type": "text", "id": "title", "label": "Title" },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "text", "id": "link", "label": "Button link", "default": "#shop" },

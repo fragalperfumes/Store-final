@@ -1,4 +1,5 @@
 {% assign prod = product %}
+{% assign fixed_gallery = false %}{% if prod.handle == 'zaran' or prod.handle == 'zaran-50ml' %}{% assign fixed_gallery = true %}{% endif %}
 <section aria-label="{{ prod.title | escape }} — product page">
   <div class="pd-wrap">
     <div class="pd-top">
@@ -12,29 +13,31 @@
       <div class="pd-gallery">
         <div class="pd-stage">
           <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.6 3.6 21 12l-9 9-8.4-8.4A2 2 0 0 1 3 11.2V4a1 1 0 0 1 1-1h7.2a2 2 0 0 1 1.4.6Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg> 38% OFF</span>
-          {% if prod.images.size > 0 %}
+          {% if fixed_gallery %}
+            <img id="pdMainImg" src="{{ 'zaran-pdp-white-bottle-v1.webp' | asset_url }}" alt="ZARAN 50ML perfume bottle — golden amber faceted glass with diamond-cut crystal cap and white FRAGAL PERFUMES ZARAN print, on a light studio background">
+          {% elsif prod.images.size > 0 %}
             <img id="pdMainImg" src="{{ prod.images.first | image_url: width: 1200 }}" alt="{{ prod.title | escape }}">
           {% else %}
             <img id="pdMainImg" src="{{ 'zaran-pdp-white-bottle-v1.webp' | asset_url }}" alt="ZARAN 50ML perfume bottle — golden amber faceted glass with diamond-cut crystal cap and white FRAGAL PERFUMES ZARAN print, on a light studio background">
           {% endif %}
         </div>
         <div class="pd-thumbs" role="group" aria-label="Product photos">
-          {% if prod.images.size > 0 %}
-            {% for image in prod.images %}
-            <button class="pd-thumb{% if forloop.first %} on{% endif %}" type="button" data-pd-src="{{ image | image_url: width: 1200 }}" data-pd-alt="{{ image.alt | escape }}" aria-label="Photo {{ forloop.index }}">
-              <img src="{{ image | image_url: width: 300 }}" alt="" loading="lazy">
-            </button>
-            {% endfor %}
-          {% else %}
+          {% if fixed_gallery or prod.images.size == 0 %}
             <button class="pd-thumb on" type="button" data-pd-src="{{ 'zaran-pdp-white-bottle-v1.webp' | asset_url }}" data-pd-alt="ZARAN 50ML perfume bottle — golden amber faceted glass with diamond-cut crystal cap and white FRAGAL PERFUMES ZARAN print, on a light studio background" aria-label="Photo 1 — bottle only">
               <img src="{{ 'zaran-pdp-white-bottle-v1.webp' | asset_url }}" alt="" loading="lazy">
             </button>
             <button class="pd-thumb" type="button" data-pd-src="{{ 'zaran-pdp-box-set-v1.webp' | asset_url }}" data-pd-alt="ZARAN 50ML golden bottle with the black FRAGAL PERFUMES gift box" aria-label="Photo 2 — bottle and box">
               <img src="{{ 'zaran-pdp-box-set-v1.webp' | asset_url }}" alt="" loading="lazy">
             </button>
-            <button class="pd-thumb" type="button" data-pd-src="{{ 'zaran-pdp-burgundy-v1.webp' | asset_url }}" data-pd-alt="ZARAN 50ML burgundy bottle standing on agarwood with red smoke" aria-label="Photo 3 — burgundy bottle on agarwood">
-              <img src="{{ 'zaran-pdp-burgundy-v1.webp' | asset_url }}" alt="" loading="lazy">
+            <button class="pd-thumb" type="button" data-pd-src="{{ 'zaran-pdp-driftwood-900w-v17.webp' | asset_url }}" data-pd-alt="ZARAN 50ML golden amber bottle standing among driftwood pieces in warm amber light" aria-label="Photo 3 — bottle among driftwood">
+              <img src="{{ 'zaran-pdp-driftwood-450w-v17.webp' | asset_url }}" srcset="{{ 'zaran-pdp-driftwood-450w-v17.webp' | asset_url }} 450w, {{ 'zaran-pdp-driftwood-900w-v17.webp' | asset_url }} 900w" sizes="96px" alt="" loading="lazy">
             </button>
+          {% else %}
+            {% for image in prod.images %}
+            <button class="pd-thumb{% if forloop.first %} on{% endif %}" type="button" data-pd-src="{{ image | image_url: width: 1200 }}" data-pd-alt="{{ image.alt | escape }}" aria-label="Photo {{ forloop.index }}">
+              <img src="{{ image | image_url: width: 300 }}" alt="" loading="lazy">
+            </button>
+            {% endfor %}
           {% endif %}
         </div>
       </div>

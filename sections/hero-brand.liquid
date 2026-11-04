@@ -2,8 +2,8 @@
   <div class="wrap">
     <section class="hero-card">
       <div class="hero-copy">
-        {% if section.settings.logo_image != blank %}<img class="hero-logo-v15" src="{{ section.settings.logo_image | image_url: width: 700 }}" alt="FRAGAL PERFUMES logo — gold F monogram with FRAGAL PERFUMES wordmark">
-        {% else %}<img class="hero-logo-v15" src="{{ 'fragal-logo-v15.png' | asset_url }}" alt="FRAGAL PERFUMES logo — gold F monogram with FRAGAL PERFUMES wordmark">{% endif %}
+        {% if section.settings.logo_image != blank %}<img class="hero-logo-v15" src="{{ section.settings.logo_image | image_url: width: 500 }}" srcset="{{ section.settings.logo_image | image_url: width: 500 }} 500w, {{ section.settings.logo_image | image_url: width: 700 }} 700w" sizes="(max-width: 700px) 168px, 250px" width="500" height="416" alt="FRAGAL PERFUMES logo — gold F monogram with FRAGAL PERFUMES wordmark">
+        {% else %}<img class="hero-logo-v15" src="{{ 'fragal-logo-500w-v16.png' | asset_url }}" srcset="{{ 'fragal-logo-500w-v16.png' | asset_url }} 500w, {{ 'fragal-logo-v15.png' | asset_url }} 1080w" sizes="(max-width: 700px) 168px, 250px" width="500" height="416" alt="FRAGAL PERFUMES logo — gold F monogram with FRAGAL PERFUMES wordmark">{% endif %}
         <h1 class="hero-headline">{{ section.settings.heading }}</h1>
         <p class="hero-desc hero-brand-copy">{{ section.settings.text }}</p>
         <div class="hero-brand-cta">
@@ -13,8 +13,8 @@
       <div class="hero-media">
         <div class="frame frame-agarwood">
           <span class="off-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.6 3.6 21 12l-9 9-8.4-8.4A2 2 0 0 1 3 11.2V4a1 1 0 0 1 1-1h7.2a2 2 0 0 1 1.4.6Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg> {{ section.settings.badge }}</span>
-          {% if section.settings.image != blank %}<img class="hero-agarwood" src="{{ section.settings.image | image_url: width: 1400 }}" srcset="{{ section.settings.image | image_url: width: 700 }} 700w, {{ section.settings.image | image_url: width: 1080 }} 1080w, {{ section.settings.image | image_url: width: 1400 }} 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 92vw, 560px" width="1400" height="2000" alt="ZARAN perfume bottle on agarwood">
-          {% else %}<img class="hero-agarwood" src="{{ 'hero-zaran-1400x2000-v1.webp' | asset_url }}" srcset="{{ 'hero-zaran-941x1672-v1.webp' | asset_url }} 941w, {{ 'hero-zaran-1400x2000-v1.webp' | asset_url }} 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 92vw, 560px" width="1400" height="2000" alt="ZARAN perfume bottle — golden amber faceted glass with diamond-cut crystal cap and FRAGAL PERFUMES ZARAN print, resting on agarwood oud wood against a dark amber cinematic background">{% endif %}
+          {% if section.settings.image != blank %}<img class="hero-agarwood" src="{{ section.settings.image | image_url: width: 768 }}" srcset="{{ section.settings.image | image_url: width: 480 }} 480w, {{ section.settings.image | image_url: width: 768 }} 768w, {{ section.settings.image | image_url: width: 1080 }} 1080w, {{ section.settings.image | image_url: width: 1400 }} 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 92vw, 560px" width="1400" height="2000" fetchpriority="high" alt="ZARAN perfume bottle on agarwood">
+          {% else %}<img class="hero-agarwood" src="{{ 'hero-zaran-768w-v16.webp' | asset_url }}" srcset="{{ 'hero-zaran-480w-v16.webp' | asset_url }} 480w, {{ 'hero-zaran-768w-v16.webp' | asset_url }} 768w, {{ 'hero-zaran-941x1672-v1.webp' | asset_url }} 941w, {{ 'hero-zaran-1400x2000-v1.webp' | asset_url }} 1400w" sizes="(max-width: 700px) 100vw, (max-width: 1080px) 92vw, 560px" width="1400" height="2000" fetchpriority="high" alt="ZARAN perfume bottle — golden amber faceted glass with diamond-cut crystal cap and FRAGAL PERFUMES ZARAN print, resting on agarwood oud wood against a dark amber cinematic background">{% endif %}
         </div>
       </div>
     </section>

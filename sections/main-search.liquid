@@ -8,7 +8,7 @@
   <div class="collection-grid">
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
-      <div class="p-card"><a href="{{ item.url }}">{% if item.featured_image %}<img src="{{ item.featured_image | image_url: width: 800 }}" alt="{{ item.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ item.url }}">{{ item.title }}</a></h3><div class="p-price">{{ item.price | money }}</div></div></div>
+      <div class="p-card"><a href="{{ item.url }}">{% if item.featured_image %}<img src="{{ item.featured_image | image_url: width: 450 }}" srcset="{{ item.featured_image | image_url: width: 450 }} 450w, {{ item.featured_image | image_url: width: 800 }} 800w" sizes="(max-width: 620px) 92vw, 330px" alt="{{ item.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ item.url }}">{{ item.title }}</a></h3><div class="p-price">{{ item.price | money }}</div></div></div>
       {% endif %}
     {% else %}
     <p>No results found.</p>

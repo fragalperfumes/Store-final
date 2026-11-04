@@ -12,11 +12,11 @@
       <div class="pcard-media">
         <span class="pcard-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.6 3.6 21 12l-9 9-8.4-8.4A2 2 0 0 1 3 11.2V4a1 1 0 0 1 1-1h7.2a2 2 0 0 1 1.4.6Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg> 38% OFF</span>
         <a href="{% if prod %}{{ prod.url }}{% else %}#shop{% endif %}" aria-label="Open the ZARAN 50ML product page">
-          {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 900 }}" alt="ZARAN 50ML perfume bottle" loading="lazy">
-          {% elsif prod.featured_image %}<img src="{{ prod.featured_image | image_url: width: 900 }}" alt="{{ prod.title | escape }}" loading="lazy">
-          {% else %}<img src="{{ 'zaran-luxury-web.webp' | asset_url }}" alt="ZARAN 50ML perfume bottle — golden amber faceted glass, diamond-cut crystal cap, white FRAGAL PERFUMES and ZARAN print, on a light studio background with a soft reflection" loading="lazy">{% endif %}
-          {% if section.settings.hover_image != blank %}<img class="pcard-img-hover" src="{{ section.settings.hover_image | image_url: width: 900 }}" alt="" aria-hidden="true" loading="lazy">
-          {% else %}<img class="pcard-img-hover" src="{{ 'card-hover-set.webp' | asset_url }}" alt="" aria-hidden="true" loading="lazy">{% endif %}
+          {% if section.settings.image != blank %}<img src="{{ section.settings.image | image_url: width: 450 }}" srcset="{{ section.settings.image | image_url: width: 450 }} 450w, {{ section.settings.image | image_url: width: 900 }} 900w" sizes="(max-width: 620px) 92vw, 330px" width="450" height="450" alt="ZARAN 50ML perfume bottle" loading="lazy">
+          {% elsif prod.featured_image %}<img src="{{ prod.featured_image | image_url: width: 450 }}" srcset="{{ prod.featured_image | image_url: width: 450 }} 450w, {{ prod.featured_image | image_url: width: 900 }} 900w" sizes="(max-width: 620px) 92vw, 330px" width="450" height="450" alt="{{ prod.title | escape }}" loading="lazy">
+          {% else %}<img src="{{ 'zaran-luxury-450w-v16.webp' | asset_url }}" srcset="{{ 'zaran-luxury-450w-v16.webp' | asset_url }} 450w, {{ 'zaran-luxury-web.webp' | asset_url }} 1254w" sizes="(max-width: 620px) 92vw, 330px" width="450" height="450" alt="ZARAN 50ML perfume bottle — golden amber faceted glass, diamond-cut crystal cap, white FRAGAL PERFUMES and ZARAN print, on a light studio background with a soft reflection" loading="lazy">{% endif %}
+          {% if section.settings.hover_image != blank %}<img class="pcard-img-hover" src="{{ section.settings.hover_image | image_url: width: 450 }}" srcset="{{ section.settings.hover_image | image_url: width: 450 }} 450w, {{ section.settings.hover_image | image_url: width: 900 }} 900w" sizes="(max-width: 620px) 92vw, 330px" width="450" height="450" alt="" aria-hidden="true" loading="lazy">
+          {% else %}<img class="pcard-img-hover" src="{{ 'card-hover-set-450w-v16.webp' | asset_url }}" srcset="{{ 'card-hover-set-450w-v16.webp' | asset_url }} 450w, {{ 'card-hover-set.webp' | asset_url }} 1254w" sizes="(max-width: 620px) 92vw, 330px" width="450" height="450" alt="" aria-hidden="true" loading="lazy">{% endif %}
         </a>
       </div>
       <div class="pcard-body">

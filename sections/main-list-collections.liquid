@@ -2,7 +2,7 @@
   <h1>Collections</h1>
   <div class="collection-grid" style="margin-top:26px">
     {% for col in collections %}
-    <div class="p-card"><a href="{{ col.url }}">{% if col.featured_image %}<img src="{{ col.featured_image | image_url: width: 800 }}" alt="{{ col.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ col.url }}">{{ col.title }}</a></h3></div></div>
+    <div class="p-card"><a href="{{ col.url }}">{% if col.featured_image %}<img src="{{ col.featured_image | image_url: width: 450 }}" srcset="{{ col.featured_image | image_url: width: 450 }} 450w, {{ col.featured_image | image_url: width: 800 }} 800w" sizes="(max-width: 620px) 92vw, 330px" alt="{{ col.title | escape }}">{% endif %}</a><div class="p-body"><h3><a href="{{ col.url }}">{{ col.title }}</a></h3></div></div>
     {% endfor %}
   </div>
 </div>

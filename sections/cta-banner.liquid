@@ -1,7 +1,7 @@
 <div class="wrap screen cta-screen">
   <section class="cta-banner">
-    {% if section.settings.image != blank %}<img class="bg" src="{{ section.settings.image | image_url: width: 2000 }}" alt="" aria-hidden="true" loading="lazy">
-    {% else %}<img class="bg" src="{{ 'cta-banner-zaran-right-v3.webp' | asset_url }}" alt="" aria-hidden="true" loading="lazy">{% endif %}
+    {% if section.settings.image != blank %}<img class="bg" src="{{ section.settings.image | image_url: width: 1200 }}" srcset="{{ section.settings.image | image_url: width: 820 }} 820w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 2000 }} 2000w" sizes="(max-width: 700px) 100vw, 1232px" alt="" aria-hidden="true" loading="lazy">
+    {% else %}<img class="bg" src="{{ 'cta-banner-1200w-v16.webp' | asset_url }}" srcset="{{ 'cta-banner-820w-v16.webp' | asset_url }} 820w, {{ 'cta-banner-1200w-v16.webp' | asset_url }} 1200w, {{ 'cta-banner-zaran-right-v3.webp' | asset_url }} 1920w" sizes="(max-width: 700px) 100vw, 1232px" alt="" aria-hidden="true" loading="lazy">{% endif %}
     <div class="shade"></div>
     <div class="cta-in">
       <h2>DISCOVER YOUR<br><span class="gold">SIGNATURE</span><br>FRAGRANCE</h2>

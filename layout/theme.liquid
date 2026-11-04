@@ -10,8 +10,9 @@
 {{ content_for_header }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Manrope:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Manrope:wght@400;600;700;800&family=Noto+Nastaliq+Urdu:wght@400&display=swap" rel="stylesheet">
 {{ 'base.css' | asset_url | stylesheet_tag }}
+{% if template.name == 'index' %}<link rel="preload" as="image" href="{{ 'hero-zaran-768w-v16.webp' | asset_url }}" imagesrcset="{{ 'hero-zaran-480w-v16.webp' | asset_url }} 480w, {{ 'hero-zaran-768w-v16.webp' | asset_url }} 768w, {{ 'hero-zaran-941x1672-v1.webp' | asset_url }} 941w, {{ 'hero-zaran-1400x2000-v1.webp' | asset_url }} 1400w" imagesizes="(max-width: 700px) 100vw, (max-width: 1080px) 92vw, 560px" fetchpriority="high">{% endif %}
 <style>:root{--green:{{ settings.color_green }};--green-2:{{ settings.color_green }};--gold:{{ settings.color_gold }};--gold-2:#9c7c2e;--gold-deep:#a8823f}</style>
 </head>
 <body>

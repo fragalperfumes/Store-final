@@ -11,6 +11,7 @@
           "type": "tile",
           "settings": {
             "fallback_asset": "cat-bestseller-v2.webp",
+            "fallback_small": "cat-bestseller-640w-v16.webp",
             "title": "Best Seller",
             "button_label": "Shop Now",
             "link": "#shop",
@@ -21,6 +22,7 @@
           "type": "tile",
           "settings": {
             "fallback_asset": "cat-mens-tilted.webp",
+            "fallback_small": "cat-mens-640w-v16.webp",
             "title": "Men's Perfumes",
             "button_label": "Shop Now",
             "link": "#shop",
@@ -31,6 +33,7 @@
           "type": "tile",
           "settings": {
             "fallback_asset": "cat-womens-v2.webp",
+            "fallback_small": "cat-womens-640w-v16.webp",
             "title": "Women's Perfumes",
             "button_label": "Coming Soon",
             "link": "#shop",
@@ -41,6 +44,7 @@
           "type": "tile",
           "settings": {
             "fallback_asset": "cat-unisex-v2.webp",
+            "fallback_small": "cat-unisex-640w-v16.webp",
             "title": "Unisex Perfumes",
             "button_label": "Coming Soon",
             "link": "#shop",

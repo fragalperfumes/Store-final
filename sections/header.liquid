@@ -2,7 +2,7 @@
 <header class="site">
   <div class="header-in">
     <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — back to the home page">
-      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 480 }}" alt="FRAGAL PERFUMES">
+      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 320 }}" srcset="{{ section.settings.logo | image_url: width: 320 }} 320w, {{ section.settings.logo | image_url: width: 480 }} 480w" sizes="160px" width="320" height="89" alt="FRAGAL PERFUMES">
       {% else %}<img class="header-wordmark" src="{{ 'header-wordmark-transparent-v1.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
     </a>
     <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
@@ -49,7 +49,7 @@
 <aside class="nav-drawer" id="navDrawer" aria-label="Mobile menu">
   <div class="nav-drawer-head">
     <a class="logo" data-logo-scroll href="{{ routes.root_url }}" aria-label="FRAGAL Perfumes — back to the home page">
-      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 400 }}" alt="FRAGAL PERFUMES">
+      {% if section.settings.logo != blank %}<img class="header-wordmark" src="{{ section.settings.logo | image_url: width: 300 }}" width="300" height="83" alt="FRAGAL PERFUMES">
       {% else %}<img class="header-wordmark" src="{{ 'header-wordmark.png' | asset_url }}" alt="FRAGAL PERFUMES">{% endif %}
     </a>
     <button class="nav-close" id="navClose" type="button" aria-label="Close menu">
