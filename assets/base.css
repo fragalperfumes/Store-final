@@ -1394,6 +1394,34 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
   .search-panel.open{animation:none}
 }
 
+/* ---------- HERO FRAME LOCK + MOBILE PHOTO — pack18 ----------
+   Do frame ab apni photo ke ratio par LOCK hain, screen ki height
+   par nahi:
+   1) DESKTOP: frame aspect-ratio:7/10 — desktop photo (1400x2000)
+      ka asal ratio. Frame height pehle ki tarah hero card ke andar
+      fit rehti hai, width ratio se khud banti hai aur frame center
+      me rehta hai; photo object-fit:cover se frame ko poora bharti
+      hai — koi letterbox / khaali band nahi.
+   2) MOBILE (<=700px): frame aspect-ratio:16/9 aur width:100% —
+      frame ka size ab kisi phone ki screen height (100svh) se NAHI
+      banta, is liye har phone par photo bilkul same dikhti hai.
+      Mobile par ALAG photo dikhti hai (driftwood wali, 1280x720,
+      16:9) — <picture> ka (max-width:700px) source sirf wahi load
+      hoti hai, desktop par purani portrait photo hi aati hai.
+      Mobile photo bhi object-fit:cover se 16/9 frame ko poora
+      bharti hai; 38% OFF badge frame ke andar hi rehta hai, is
+      liye dono photos par bilkul waisa hi dikhta hai.
+   Desktop ka layout, text, logo aur button bilkul waisa hi hai —
+   sirf frame ka size ratio par lock hua hai. */
+.hero-media{display:flex;justify-content:center}
+.hero-media .frame.frame-agarwood{aspect-ratio:7/10;height:100%;max-height:100%;width:auto;max-width:100%;flex:0 1 auto}
+.hero-media picture{display:block;width:100%;height:100%}
+.hero-media img.hero-agarwood{object-fit:cover;object-position:center center}
+@media (max-width:700px){
+  .hero-screen .hero-media{display:flex;flex-direction:column;justify-content:center}
+  .hero-screen .hero-media .frame.frame-agarwood{aspect-ratio:16/9;width:100%;max-width:100%;height:auto;min-height:0;flex:0 0 auto}
+}
+
 /* --- Fragal theme extras (Shopify) --- */
 .shopify-section{position:relative}
 #shopify-section-header{position:sticky;top:0;z-index:60}
