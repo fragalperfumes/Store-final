@@ -7,7 +7,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
         Back
       </a>
-      <nav class="pd-crumb" aria-label="Breadcrumb">Home &nbsp;/&nbsp; Shop All &nbsp;/&nbsp; <b>{{ prod.title }}</b></nav>
+      <nav class="pd-crumb" aria-label="Breadcrumb"><a href="{{ routes.root_url }}">HOME</a> &nbsp;/&nbsp; <a href="{{ routes.all_products_collection_url }}">SHOP ALL</a> &nbsp;/&nbsp; <b>{{ prod.title }}</b></nav>
     </div>
     <div class="pd-grid">
       <div class="pd-gallery">

@@ -4,62 +4,6 @@
       "type": "hero-brand",
       "settings": {}
     },
-    "tiles": {
-      "type": "category-tiles",
-      "blocks": {
-        "t1": {
-          "type": "tile",
-          "settings": {
-            "fallback_asset": "cat-bestseller-v2.webp",
-            "fallback_small": "cat-bestseller-640w-v16.webp",
-            "title": "Best Seller",
-            "button_label": "Shop Now",
-            "link": "#shop",
-            "coming_soon": false
-          }
-        },
-        "t2": {
-          "type": "tile",
-          "settings": {
-            "fallback_asset": "cat-mens-tilted.webp",
-            "fallback_small": "cat-mens-640w-v16.webp",
-            "title": "Men's Perfumes",
-            "button_label": "Shop Now",
-            "link": "#shop",
-            "coming_soon": false
-          }
-        },
-        "t3": {
-          "type": "tile",
-          "settings": {
-            "fallback_asset": "cat-womens-v2.webp",
-            "fallback_small": "cat-womens-640w-v16.webp",
-            "title": "Women's Perfumes",
-            "button_label": "Coming Soon",
-            "link": "#shop",
-            "coming_soon": true
-          }
-        },
-        "t4": {
-          "type": "tile",
-          "settings": {
-            "fallback_asset": "cat-unisex-v2.webp",
-            "fallback_small": "cat-unisex-640w-v16.webp",
-            "title": "Unisex Perfumes",
-            "button_label": "Coming Soon",
-            "link": "#shop",
-            "coming_soon": true
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {}
-    },
     "featured": {
       "type": "featured-product",
       "settings": {
@@ -76,89 +20,32 @@
         "r1": {
           "type": "review",
           "settings": {
-            "text": "اتنی خوبصورت خوشبو ہے کہ صبح لگائی تھی اور شام تک کپڑوں سے اس کی مہک آتی رہی۔ میں تو سب کو یہی لینے کا مشورہ دوں گا!",
-            "name": "Daniyal Ahmed"
+            "text": "I have just recievd This Fragal\nIts really Pure Decent Fragnance\nIts Strongly Referable",
+            "name": "M Waqas",
+            "photo_asset": "review-waqas-2026-11-21.png"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
-            "text": "Just seeing the packaging made me happy. The scent is soft, never harsh — truly classy, and perfect for the office. Loved every bit of it.",
-            "name": "Abdullah"
+            "text": "Lasting kaafi ache hy .\nFragrance I loved it ...\nValue to Money 👍",
+            "name": "Jahangir Ahmed",
+            "photo_asset": "review-jahangir-2026-11-21.png"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
-            "text": "Khushbu bohat hi classy aur elegant hai. Lasting bhi zabardast hai — mere doston ne poocha ke konsa perfume lagaya hai.",
-            "name": "M Haris"
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "text": "Gift ke liye liya tha — box itna elegant hai ke alag se wrapping ki zaroorat hi nahi pari.",
-            "name": "Ali Hassan"
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "text": "Shuru mein fresh si khushbu aati hai, phir halki si meethi — poora din fresh feel hota hai. Har rupay ke qabil hai.",
-            "name": "Mudassar"
+            "text": "Wonderful fragrance and its projection and lasting worths appreciation",
+            "name": "Muhammad Salman",
+            "initial": "MS"
           }
         }
       },
       "block_order": [
         "r1",
         "r2",
-        "r3",
-        "r4",
-        "r5"
-      ],
-      "settings": {}
-    },
-    "why": {
-      "type": "why-fragal",
-      "blocks": {
-        "w1": {
-          "type": "card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 21.5a6.8 6.8 0 0 0 6.8-6.8c0-2.6-1.7-5-3.4-7.1C14 5.9 12.9 4.4 12 2.6c-.9 1.8-2 3.3-3.4 5C6.9 9.7 5.2 12.1 5.2 14.7A6.8 6.8 0 0 0 12 21.5Z\"/><path d=\"M9.2 14.8a3 3 0 0 0 2 3.4\"/></svg>",
-            "title": "40% CONCENTRATION",
-            "text": "Most sprays are 15–20% oil. ZARAN is 40% perfume oil — the honest reason it stays 8+ hours on clothes."
-          }
-        },
-        "w2": {
-          "type": "card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 12a8.5 8.5 0 1 0 2.5-6\"/><path d=\"M3.5 3.8v4.7h4.7\"/></svg>",
-            "title": "15-DAY RETURNS",
-            "text": "Not for you? Return it within 15 days, no questions asked. A promise, not fine print."
-          }
-        },
-        "w3": {
-          "type": "card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"7.3\" r=\"2.4\"/><circle cx=\"16.7\" cy=\"12\" r=\"2.4\"/><circle cx=\"12\" cy=\"16.7\" r=\"2.4\"/><circle cx=\"7.3\" cy=\"12\" r=\"2.4\"/><circle cx=\"12\" cy=\"12\" r=\"1.5\"/></svg>",
-            "title": "FRESH, FLORAL & MASCULINE",
-            "text": "ZARAN is a fresh and floral signature for men — bright and confident, never heavy. A profile of its own."
-          }
-        },
-        "w4": {
-          "type": "card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"/><path d=\"M12 8v13\"/><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\"/><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5\"/></svg>",
-            "title": "CONSIDERED PRESENTATION",
-            "text": "Black, gold and nothing loud. ZARAN arrives in packaging designed to be kept — or gifted."
-          }
-        }
-      },
-      "block_order": [
-        "w1",
-        "w2",
-        "w3",
-        "w4"
+        "r3"
       ],
       "settings": {}
     },
@@ -169,7 +56,7 @@
           "type": "qa",
           "settings": {
             "question": "Can I spray ZARAN directly on my skin?",
-            "answer": "We recommend spraying ZARAN on your clothes instead of directly on skin — collar, chest or sleeves. It sits better on fabric and stays longer."
+            "answer": "Do not spray ZARAN directly on your skin. Spray it on your clothes only — collar, chest or sleeves. It sits better on fabric and stays longer."
           }
         },
         "q2": {
@@ -209,11 +96,9 @@
   },
   "order": [
     "hero",
-    "tiles",
-    "featured",
     "offer",
+    "featured",
     "reviews",
-    "why",
     "faq",
     "cta"
   ]

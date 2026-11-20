@@ -1,4 +1,11 @@
 <div class="page-wrap">
+  <div class="pd-top">
+    <a class="pd-back" href="{{ routes.root_url }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+      Back
+    </a>
+    <nav class="pd-crumb" aria-label="Breadcrumb"><a href="{{ routes.root_url }}">HOME</a> &nbsp;/&nbsp; <b>{{ page.title }}</b></nav>
+  </div>
   <h1>{{ page.title }}</h1>
   <div class="rte">{{ page.content }}</div>
 </div>

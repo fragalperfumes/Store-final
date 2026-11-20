@@ -1,3 +1,4 @@
+html img,html video,html canvas{height:revert-layer}
 
 :root{
   --bg:#ffffff;
@@ -39,6 +40,11 @@ button{font-family:var(--sans);cursor:pointer}
    karta hai, speed pehle jaisi hi rehti hai. translateZ(0) track ko apni GPU layer
    par rakhta hai taake animation main thread ke layout se atke nahi. */
 .marquee-track{display:inline-flex;gap:0;padding:9px 0;animation:scrollX 44s linear infinite;will-change:transform;transform:translateZ(0)}
+/* pack22 — marquee hover pause: mouse bar par aye to line wahi ruk jati
+   hai jahan thi, mouse hate to usi spot se aage chalti hai (koi jump ya
+   restart nahi). Sirf mouse hover par lagta hai — touch par scrolling
+   pehle jaisi hi rehti hai. */
+.marquee:hover .marquee-track{animation-play-state:paused}
 .marquee span{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:11px;font-weight:800;letter-spacing:.22em}
 .marquee i{color:var(--gold-light);font-style:normal}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -65,6 +71,24 @@ nav.main{display:flex;gap:30px;margin-left:auto;align-items:center}
 nav.main a{font-size:11.5px;font-weight:700;letter-spacing:.18em;color:#343128;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
 nav.main a:hover{color:var(--gold-2)}
 nav.main a.active{color:var(--gold-2);border-bottom-color:var(--gold)}
+/* ---------- SHOP ALL DROPDOWN (pack20) — Elyscents style ----------
+   Desktop header me SHOP ALL par mouse le jane (hover), keyboard
+   focus, ya click/tap karne par neeche ek WHITE dropdown khulta hai
+   jisme sirf 2 items hain: Best Seller aur Men's Perfumes — dono
+   ZARAN card (#shop) par le jate hain. Box white hai, text dark,
+   hover par halki gold tint + gold text (Fragal ka accent). */
+.nav-drop{position:relative}
+.nav-drop-toggle{display:inline-flex;align-items:center;gap:6px}
+.nav-chev{width:11px;height:11px;flex-shrink:0;transition:transform .25s ease}
+.nav-drop:hover .nav-chev,.nav-drop:focus-within .nav-chev,.nav-drop.open .nav-chev{transform:rotate(180deg)}
+.nav-dropdown{position:absolute;top:100%;left:50%;transform:translate(-50%,8px);min-width:216px;background:#ffffff;border:1px solid var(--line-soft);border-radius:14px;box-shadow:0 24px 48px rgba(20,14,2,.16);padding:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:70}
+.nav-dropdown::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.nav-drop:hover .nav-dropdown,.nav-drop:focus-within .nav-dropdown,.nav-drop.open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+nav.main .nav-dropdown a{display:block;padding:11px 14px;border-bottom:0;border-radius:9px;font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#2b2820;white-space:nowrap}
+nav.main .nav-dropdown a:hover{background:rgba(200,164,93,.13);color:var(--gold-2)}
+@media (prefers-reduced-motion:reduce){
+  .nav-dropdown,.nav-chev{transition:none}
+}
 .head-icons{display:flex;gap:10px;margin-left:6px}
 .icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-soft);background:#ffffff;color:#22201a;display:grid;place-items:center;position:relative;transition:.2s}
 .icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
@@ -165,17 +189,6 @@ h1,h2,h3{font-family:var(--serif);margin:0;color:#141310}
 .g-item.tall{grid-row:span 2;min-height:560px}
 .g-item .tag{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(8,8,8,.72);backdrop-filter:blur(6px);color:var(--gold-light);border-color:rgba(230,203,138,.5)}
 
-/* ---------- why fragal — premium black & gold cards ---------- */
-.why{max-width:1232px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.why .card{background:linear-gradient(165deg,#161410 0%,#0b0a08 62%,#100e0a 100%);border:1px solid rgba(200,164,93,.45);border-radius:22px;padding:28px 24px 26px;min-height:230px;display:flex;flex-direction:column;box-shadow:0 10px 28px rgba(20,14,2,.22);position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-.why .card::before{content:"";position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.85}
-.why .card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 22px 44px rgba(20,14,2,.30),0 0 0 1px rgba(200,164,93,.25),0 14px 38px rgba(200,164,93,.30)}
-.why .ic{width:52px;height:52px;border-radius:50%;border:1px solid rgba(200,164,93,.6);background:rgba(200,164,93,.10);display:grid;place-items:center;color:var(--gold-light);margin-bottom:20px;flex-shrink:0}
-.why .ic svg{width:23px;height:23px;display:block}
-.why h3{font-size:19px;font-weight:700;line-height:1.3;letter-spacing:.03em;color:#f4ecd8}
-.why h3::after{content:"";display:block;width:36px;height:1px;background:var(--gold);margin-top:13px}
-.why p{color:#b3ab99;font-size:14px;line-height:1.65;margin:13px 0 0;flex:1}
-
 /* ---------- faq ---------- */
 .faq{max-width:1232px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:0 10px;align-items:start}
 .faq>div:first-child{position:sticky;top:calc(var(--header-h) + 28px)}
@@ -188,21 +201,27 @@ h1,h2,h3{font-family:var(--serif);margin:0;color:#141310}
 .faq .lead{color:var(--muted);line-height:1.65;margin-top:18px;max-width:400px}
 .faq .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .faq-list{display:grid;gap:14px}
-.faq-item{background:var(--panel);border:1px solid rgba(168,130,63,.22);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.03);transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
+.faq-item{background:var(--panel);border:1px solid rgba(168,130,63,.22);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.03);transition:border-color .18s ease,box-shadow .18s ease,background .18s ease}
 .faq-item:hover{border-color:rgba(200,164,93,.65);box-shadow:0 10px 26px rgba(168,130,63,.14)}
 .faq-item.open{border-color:var(--gold);background:linear-gradient(180deg,#fffdf6,#ffffff 55%);box-shadow:0 14px 32px rgba(168,130,63,.16)}
-.faq-q{width:100%;background:none;border:0;color:#141310;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:17px 22px;font-size:15.5px;font-weight:700;cursor:pointer;transition:color .25s ease}
+.faq-q{width:100%;background:none;border:0;color:#141310;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;padding:17px 22px;font-size:15.5px;font-weight:700;cursor:pointer;transition:color .18s ease}
 .faq-q:hover{color:var(--gold-2)}
 .faq-item.open .faq-q{color:var(--gold-2)}
-.faq-q .chev{width:30px;height:30px;flex-shrink:0;border-radius:50%;border:1px solid var(--gold);background:rgba(200,164,93,.08);display:grid;place-items:center;position:relative;transition:background .3s ease,border-color .3s ease}
+.faq-q .chev{width:30px;height:30px;flex-shrink:0;border-radius:50%;border:1px solid var(--gold);background:rgba(200,164,93,.08);display:grid;place-items:center;position:relative;transition:background .18s ease,border-color .18s ease}
 .faq-q .chev svg{display:none}
-.faq-q .chev::before,.faq-q .chev::after{content:"";position:absolute;left:50%;top:50%;background:var(--gold-2);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+.faq-q .chev::before,.faq-q .chev::after{content:"";position:absolute;left:50%;top:50%;background:var(--gold-2);border-radius:2px;transition:transform .18s ease,opacity .18s ease}
 .faq-q .chev::before{width:12px;height:2px;transform:translate(-50%,-50%)}
 .faq-q .chev::after{width:2px;height:12px;transform:translate(-50%,-50%)}
 .faq-item.open .chev{background:linear-gradient(180deg,var(--gold-light),var(--gold));border-color:var(--gold)}
 .faq-item.open .chev::before{background:#191307}
 .faq-item.open .chev::after{background:#191307;transform:translate(-50%,-50%) scaleY(0);opacity:0}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease}
+/* pack23 — FAQ accordion speed: pehle jawab ka transition 380ms tha, is
+   liye click ke baad jawab susti se khulta tha. Ab 180ms hai — click ke foran
+   baad jawab khul jata hai, phir bhi smooth rehta hai. JS pehle se hi
+   asal content height (scrollHeight) measure karke maxHeight set karta
+   hai, is liye animation crawl nahi karti. Yehi .faq-a homepage FAQ
+   aur FAQ page view dono me use hoti hai — dono tez ho gaye. */
+.faq-a{max-height:0;overflow:hidden;transition:max-height .18s ease-out}
 .faq-a p{margin:0;padding:0 22px 20px;color:var(--muted);line-height:1.6;font-size:14.5px}
 
 /* ---------- final cta ---------- */
@@ -342,7 +361,6 @@ footer.screen-f .lux-in{flex:1;width:100%;display:flex;flex-direction:column;jus
   .profile-media img{height:min(420px,44vh)}
   .gallery{grid-template-columns:1fr 1fr}
   .g-item.tall{grid-row:auto;min-height:340px}
-  .why{grid-template-columns:1fr 1fr}
   .faq{grid-template-columns:1fr;gap:30px}
   .faq>div:first-child{position:static}
   .foot{grid-template-columns:1fr 1fr}
@@ -358,7 +376,6 @@ footer.screen-f .lux-in{flex:1;width:100%;display:flex;flex-direction:column;jus
   .split .body{padding:34px 24px}
   .gallery{grid-template-columns:1fr}
   .g-item,.g-item.tall{min-height:300px}
-  .why{grid-template-columns:1fr}
   .cta-in{padding:44px 26px}
   .cta-price{margin:16px 0 0;display:flex}
   .foot{grid-template-columns:1fr}
@@ -850,6 +867,17 @@ section[id],footer[id],main[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
 .drawer-links a:hover{color:var(--gold-2);background:rgba(200,164,93,.05)}
 .drawer-links a.active{color:var(--gold-2)}
 .drawer-links a.active::after{content:"";width:6px;height:6px;flex-shrink:0;background:var(--gold);transform:rotate(45deg)}
+/* Drawer me SHOP ALL expandable group (pack20) — mobile par hover
+   nahi hota, is liye SHOP ALL ek toggle button hai: tap karne par
+   neeche wahi 2 sub-links khulte hain jo desktop dropdown me hain
+   (Best Seller, Men's Perfumes — dono #shop par). */
+.drawer-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:17px 24px;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.24em;color:#2b2820;background:none;border:0;border-bottom:1px solid var(--line-soft);cursor:pointer;text-align:left;transition:.2s}
+.drawer-toggle:hover{color:var(--gold-2);background:rgba(200,164,93,.05)}
+.drawer-chev{width:14px;height:14px;flex-shrink:0;transition:transform .25s ease}
+.drawer-group.open .drawer-chev{transform:rotate(180deg)}
+.drawer-sub{display:none;flex-direction:column;background:rgba(200,164,93,.05)}
+.drawer-group.open .drawer-sub{display:flex}
+.drawer-links .drawer-sub a{padding:13px 24px 13px 40px;font-size:11.5px;letter-spacing:.2em}
 .drawer-socials{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-soft)}
 .drawer-socials a{display:grid;place-items:center;padding:17px 0;color:#1e1c17;transition:.2s}
 .drawer-socials a+a{border-left:1px solid var(--line-soft)}
@@ -987,6 +1015,14 @@ body:has(.nav-drawer.open) .dl-theme-btn,body:has(.drawer.on) .dl-theme-btn{opac
 .pd-back svg{width:16px;height:16px}
 .pd-crumb{font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--muted2);text-transform:uppercase}
 .pd-crumb b{color:#141310;font-weight:800}
+/* pack24 — breadcrumb ke parent items (HOME, aur product page par
+   SHOP ALL) asal working links hain; current page wala item <b>
+   plain text hi rehta hai, link nahi. Link ka rang breadcrumb
+   jaisa hi muted hai, hover par gold ho jata hai taake clickable
+   hona saaf nazar aye. */
+.pd-crumb a{color:var(--muted2);text-decoration:none;cursor:pointer;transition:color .2s}
+.pd-crumb a:hover{color:var(--gold-2);text-decoration:underline;text-underline-offset:3px}
+.pd-crumb a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .pd-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:start}
 /* Sticky gallery — sirf desktop 2-column layout par: LEFT gallery (bari photo + thumbnails)
    scroll par apni jagah ruki rehti hai, RIGHT text column normal scroll hota hai.
@@ -1097,8 +1133,7 @@ body:has(.nav-drawer.open) .dl-theme-btn,body:has(.drawer.on) .dl-theme-btn{opac
    lekin content aur tarteeb poori tarah Fragal ki apni hai: OUR STORY
    eyebrow, 'The House of Fragal' heading, Our Beginning, What We Stand
    For (4 values, light numbered panels), Meet the Founder, Our Promise.
-   Main page ke WHY CHOOSE FRAGAL (#about) section se bilkul alag —
-   sirf #page-about par scoped hai. */
+   Ye standalone About Us page hai — sirf #page-about par scoped hai. */
 #page-about .pv-prose{max-width:760px}
 #page-about .ab-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.42em;color:var(--gold-deep);text-transform:uppercase;margin:0 0 16px}
 #page-about .ab-eyebrow .rule{width:44px;height:1px;background:var(--gold);display:inline-block}
@@ -1137,49 +1172,12 @@ a.c-row:hover{border-color:var(--gold);box-shadow:0 10px 26px rgba(168,130,63,.1
   .c-row .val{font-size:15.5px}
 }
 
-/* ---------- CATEGORY TILES — 4 full-bleed banner tiles (reference style) ----------
-   Hero ke FORAN BAAD, ZARAN product card (#shop) se PEHLE ek full-width
-   strip hai: 4 tiles ek row me, bina gap ke edge-to-edge (reference —
-   Best Seller / Men's Attars / Women's Attars wali picture — jaisa).
-   Har tile: full-bleed background photo (user ki bheji hui images bilkul
-   as-is, koi change nahi), neeche dark gradient overlay, us par centered
-   white title aur white pill button.
-   - BEST SELLER aur MEN'S PERFUMES: "Shop Now" pill — click par ZARAN
-     card section (#shop) tak smooth scroll (page par pehle se
-     scroll-behavior:smooth hai).
-   - WOMEN'S PERFUMES aur UNISEX PERFUMES: "Coming Soon" pill — disabled
-     style (translucent, koi link nahi), click par kuch nahi hota.
-   Desktop par 4 tiles ek row me; MOBILE par tiles 2x2 grid nahi —
-   ek ke neeche ek FULL-WIDTH stacked banners hain (muskalmahalpakistan.com
-   ke mobile view jaisa): har tile lambi banner, white title overlay,
-   white pill button. Photos v2 versions hain (bottles par white FRAGAL
-   logo), bilkul as-is. Baaki page bilkul nahi badla; theme ZIP nahi banaya. */
-.cat-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.cat-tile{position:relative;height:clamp(460px,68vh,640px);overflow:hidden;background:#141210}
-.cat-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease}
-.cat-tile:hover img{transform:scale(1.04)}
-.cat-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,4,2,.78) 0%,rgba(5,4,2,.42) 34%,rgba(5,4,2,0) 62%);pointer-events:none}
-.cat-tile-in{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px 34px}
-.cat-tile h3{font-family:var(--sans);font-size:clamp(19px,1.9vw,27px);font-weight:800;letter-spacing:.05em;color:#ffffff;text-transform:uppercase;margin:0;text-shadow:0 2px 14px rgba(0,0,0,.45);line-height:1.2}
-.cat-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;background:#ffffff;color:#141310;border:1px solid #ffffff;border-radius:99px;padding:11px 28px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:.2s;white-space:nowrap}
-a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-1px)}
-.cat-btn-soon{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55);color:#ffffff;backdrop-filter:blur(4px);cursor:default;user-select:none}
-@media (max-width:900px){
-  .cat-tiles{grid-template-columns:1fr}
-  /* Tile ab 3/4 ratio par (user request): pehle 1:2 tiles mobile par
-     bohat lambi lagti thi. Image object-fit:cover + object-position:center
-     hai aur bottle har photo ke darmiyan 25%-75% hisse me hai, is liye
-     centered crop me bottle POORI nazar aati hai — sirf upar/neeche ka
-     background crop hota hai. Title + pill button ka overlay neeche
-     waisa hi hai. */
-  .cat-tile{height:auto;aspect-ratio:3/4}
-  .cat-tile h3{font-size:clamp(22px,6vw,30px)}
-  .cat-btn{padding:12px 32px;font-size:14px;margin-top:18px}
-  .cat-tile-in{padding:0 16px 36px}
-}
-@media (max-width:480px){
-  .cat-tile-in{padding:0 12px 30px}
-}
+/* ---------- CATEGORY TILES — REMOVED (pack20) ----------
+   4-tile category banner (Best Seller / Men's / Women's / Unisex)
+   homepage se khatm hai. Us ki jagah ab offer banner (38% OFF
+   LAUNCH OFFER) aata hai — hero ke foran baad, ZARAN card se
+   pehle — aur categories header ke SHOP ALL dropdown me hain
+   (sirf Best Seller aur Men's Perfumes). */
 
 /* ---------- BEST SELLER HEADING — #shop ke ANDAR sab se upar, ZARAN card se pehle ----------
    Heading ab section#shop ka pehla child hai (alag id-less section
@@ -1190,7 +1188,7 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
    component (Playfair Display serif h2 + neeche gold-rule), sirf
    letter-spacing thori zyada rakhi hai taake luxury letterspaced look
    aaye. Paddings is tarah adjust hain ke DIKHNE wala faasla bilkul
-   pehle jaisa rahe: tiles se heading tak kul 56px (34 #shop + 22) aur
+   pehle jaisa rahe: banner se heading tak kul 56px (34 #shop + 22) aur
    heading se card tak kul pehle wala hi gap (36 + .sec-head ke 26);
    #shop ki full-screen min-height yahan khatm ki gayi hai taake
    heading aur card ke darmiyan fazool khali height na bane. */
@@ -1211,14 +1209,12 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
    Har card me: 5 gold stars (#FFBF00 — product card wale stars jaisa
    rang), review text, bold "ZARAN 50ML", phir reviewer ka naam.
    Carousel ke neeche dot navigation hai — dot click par slide badalti
-   hai. Reviews PLACEHOLDER/sample hain (preview ke liye).
-   REVIEW LANGUAGES (2026-11-04, Hashim ke order par): 5 reviews un
-   bhashaon me hain jin me customers likhte hain — Daniyal Ahmed ka
-   review URDU script me (us card par lang="ur" dir="rtl" + neeche
-   wali .rev-text[lang="ur"] rule: Nastaliq font, RTL, centered,
-   zyada line-height), Abdullah ka ENGLISH me, aur M Haris, Ali
-   Hassan aur Mudassar ke ROMAN URDU me. Matlab sab ka wahi hai jo
-   pehle tha (khushbu, lasting, classy) — sirf bhasha badli hai.
+   hai.
+   REVIEWS (pack20): carousel me sirf 3 ASAL customer reviews hain —
+   M Waqas (apni bheji hui photo ke sath), Jahangir Ahmed (apni
+   photo ke sath) aur Muhammad Salman (gold initials avatar, photo nahi
+   aayi). Purane placeholder reviews khatm hain. Har review bilkul
+   waisa hi hai jaisa customer ne bheja tha.
    Yehi CSS rule theme ke base.css me bhi jati hai (builder preview
    ki <style> copy karta hai); theme ke reviews.liquid me rev-text
    par dir="auto" hai, is liye wahan :dir(rtl) selector Urdu review
@@ -1234,13 +1230,20 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
 .rev-stars{display:flex;justify-content:center;gap:3px}
 .rev-stars svg{width:17px;height:17px;color:#FFBF00;display:block}
 .rev-text{color:#33302a;font-size:15.5px;line-height:1.65;margin:20px 0 0}
-/* Urdu-script review (Daniyal Ahmed) — RTL, Nastaliq font, centered,
-   zyada line-height taake Nastaliq ke haroof clip na hon. Baqi 4
-   reviews par koi asar nahi: selector sirf lang="ur" (preview) ya
-   :dir(rtl) (theme, dir="auto" se) wale paragraph ko lagta hai. */
+/* Urdu-script review — RTL, Nastaliq font, centered, zyada
+   line-height taake Nastaliq ke haroof clip na hon. Selector sirf
+   lang="ur" (preview) ya :dir(rtl) (theme, dir="auto" se) wale
+   paragraph ko lagta hai. */
 .rev-text[lang="ur"],.rev-text:dir(rtl){direction:rtl;text-align:center;font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;font-size:16px;line-height:2.15}
 .rev-prod{font-weight:800;font-size:15px;letter-spacing:.05em;color:#141310;margin-top:auto;padding-top:24px}
 .rev-name{color:var(--muted);font-size:14px;margin-top:5px}
+/* Customer ki apni bheji hui photo (pack19) — review text ke neeche,
+   ZARAN 50ML se pehle. Fixed 4/3 frame me cover-crop hoti hai taake
+   alag size ki photos par bhi cards ki height barabar rahe. */
+.rev-photo{display:block;width:100%;max-width:280px;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line-soft);margin-top:22px}
+/* Jis review ke sath photo nahi aayi (Muhammad Salman), us card par gold
+   initials avatar — brand ke gold gradient par serif initial. */
+.rev-avatar{width:78px;height:78px;border-radius:50%;margin-top:22px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--gold-light),var(--gold) 55%,var(--gold-deep));color:#241b06;font-family:var(--serif);font-weight:700;font-size:32px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),0 10px 22px rgba(60,48,18,.16)}
 .rev-dots{display:flex;justify-content:center;gap:9px;margin-top:4px}
 .rev-dot{width:9px;height:9px;border-radius:50%;border:0;background:#d9d3c3;padding:0;transition:background .25s ease,transform .25s ease}
 .rev-dot:hover{background:#b9b09a}
@@ -1260,7 +1263,7 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
    min-height khatm hai aur content upar (flex-start) se start hota hai:
    card ke neeche sirf ek saaf, balanced gap (desktop 38px + card ke
    neeche ki halki padding) rehta hai — sections chipke hue nahi lagte.
-   Neeche WHY CHOOSE se pehle bhi munasib breathing room (58px) rakhi
+   Neeche FAQ se pehle bhi munasib breathing room rakhi
    hai. Mobile par .sec-head ki 64px top padding sirf reviews ke liye
    khatm hai, warna wahan gap dobara bara ho jata. Sirf preview ki
    spacing hai — card, reviews ka content/design bilkul waisa hi hai. */
@@ -1272,24 +1275,18 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
   #reviews .sec-head{padding-top:0}
 }
 
-/* ---------- WHY CHOOSE → FAQ SPACING — darmiyan ka faasla wazeh bara ----------
-   Dono sections (#about WHY CHOOSE FRAGAL aur #faq) .screen nahi rahe:
-   full-screen min-height khatm hai aur content upar (flex-start) se
-   start hota hai. Pehle combined gap ~78px tha jo user ko kam lagta
-   tha — ab WHY cards ke neeche aur FAQ heading ke upar mila kar
-   desktop par ~110px ka wazeh gap hai (about bottom 44px + faq
-   top 66px). Neeche CTA se pehle bhi munasib breathing room (56px)
-   barkraar hai. Mobile par combined gap ~70px hai. Sirf preview ki
-   spacing hai — dono sections ka content aur design bilkul waisa
-   hi hai, theme ZIP nahi banaya gaya. */
-#about{min-height:0;justify-content:flex-start;padding-bottom:44px}
+/* ---------- FAQ SPACING — reviews ke baad ka faasla ----------
+   #faq .screen nahi raha: full-screen min-height khatm hai aur
+   content upar (flex-start) se start hota hai. Upar reviews se
+   munasib gap hai aur neeche CTA se pehle bhi breathing room
+   (56px) barkraar hai. Mobile par gap halka chhota hai. Sirf
+   preview ki spacing hai — FAQ ka content/design waisa hi hai. */
 #faq{min-height:0;justify-content:flex-start;padding-top:66px;padding-bottom:56px}
 @media (max-width:620px){
-  #about{padding-bottom:28px}
   #faq{padding-top:42px;padding-bottom:44px}
 }
 
-/* ---------- OFFER BANNER — ZARAN card aur reviews ke darmiyan ----------
+/* ---------- OFFER BANNER — hero ke baad, ZARAN card se pehle (pack20 me yahan move hua) ----------
    User ki bheji hui ready-made picture (assets/zaran-launch-banner-v1.png,
    1774x887) full content-width lagi hai — aspect ratio natural rakha hai
    taake picture ka koi text crop na ho. Purana stone-background wala
@@ -1309,18 +1306,15 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
   .offer-banner{border-radius:24px}
 }
 
-/* ---------- CARD / BANNER / REVIEWS — darmiyan balanced faasla ----------
-   BEST SELLER PERFUME card section (#shop), offer banner (38% OFF wali
-   picture) aur "From our customers" reviews (#reviews) — teeno pehle
-   bohat chipke hue lag rahe the. Ab dono darmiyan wale gaps me thora
-   sa balanced vertical faasla add hai taake sections saans le saken,
-   lekin zyada khali jagah bhi na bane:
-   - Card → Banner: desktop par kul ~64px (#shop ke neeche 28px +
-     banner wrap ke upar 36px), pehle ~36px tha.
-   - Banner → Reviews: desktop par 60px, pehle 38px tha.
-   Mobile par gaps halke chhote rakhe hain (~48px / ~46px) taake chhoti
-   screen par bhi balanced lagen. Sirf preview ki spacing hai — teeno
-   sections ka content/design bilkul waisa hi hai, theme ZIP nahi banaya. */
+/* ---------- HERO / BANNER / CARD / REVIEWS — darmiyan balanced faasla ----------
+   Offer banner (38% OFF wali picture) pack20 me hero ke foran baad
+   aa gaya hai (pehle ZARAN card aur reviews ke darmiyan tha):
+   - Hero → Banner: banner wrap ke upar 36px.
+   - Card → Reviews: desktop par #shop ke neeche 28px + reviews ke
+     upar 60px ka balanced gap.
+   Mobile par gaps halke chhote rakhe hain taake chhoti screen par
+   bhi balanced lagen. Sirf preview ki spacing hai — sections ka
+   content/design bilkul waisa hi hai. */
 #shop{padding-bottom:28px}
 .offer-banner-wrap{padding-top:36px}
 #reviews{padding-top:60px}
@@ -1422,6 +1416,8 @@ a.cat-btn:hover{background:var(--gold-light);border-color:var(--gold-light);tran
   .hero-screen .hero-media .frame.frame-agarwood{aspect-ratio:16/9;width:100%;max-width:100%;height:auto;min-height:0;flex:0 0 auto}
 }
 
+
+
 /* --- Fragal theme extras (Shopify) --- */
 .shopify-section{position:relative}
 #shopify-section-header{position:sticky;top:0;z-index:60}
@@ -1449,3 +1445,9 @@ select.variant-select{width:100%;margin-top:14px;padding:13px 16px;border:1px so
 input.shopify-input,textarea.shopify-input{width:100%;padding:13px 16px;border:1px solid var(--line-soft);border-radius:12px;font-family:var(--sans);font-size:14.5px;margin-bottom:12px}
 .pcard-media a{display:block}
 .search-item{text-decoration:none;cursor:pointer;font-family:var(--sans)}
+/* pack18 hero frame lock — desktop 7/10, mobile 16/9 (baked into base.css, pack27) */
+.hero-media{display:flex;justify-content:center}
+.hero-media .frame.frame-agarwood{aspect-ratio:7/10;height:100%;max-height:100%;width:auto;max-width:100%;flex:0 1 auto}
+.hero-media picture{display:block;width:100%;height:100%}
+.hero-media img.hero-agarwood{object-fit:cover;object-position:center center}
+@media (max-width:700px){.hero-screen .hero-media{display:flex;flex-direction:column;justify-content:center}.hero-screen .hero-media .frame.frame-agarwood{aspect-ratio:16/9;width:100%;max-width:100%;height:auto;min-height:0;flex:0 0 auto}}

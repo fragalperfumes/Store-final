@@ -11,7 +11,8 @@
           <article class="rev-card" {{ block.shopify_attributes }}>
             <div class="rev-card-in">
               <div class="rev-stars" role="img" aria-label="Rated 5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-              <p class="rev-text" dir="auto">{{ block.settings.text }}</p>
+              <p class="rev-text" dir="auto">{{ block.settings.text | newline_to_br }}</p>
+              {% if block.settings.photo_asset != blank %}<img class="rev-photo" src="{{ block.settings.photo_asset | asset_url }}" alt="Photo sent by {{ block.settings.name }} with their review" loading="lazy">{% elsif block.settings.initial != blank %}<div class="rev-avatar" aria-hidden="true">{{ block.settings.initial }}</div>{% endif %}
               <div class="rev-prod">ZARAN 50ML</div>
               <div class="rev-name">{{ block.settings.name }}</div>
             </div>
@@ -29,7 +30,9 @@
 ], "blocks": [
   { "type": "review", "name": "Review", "settings": [
     { "type": "textarea", "id": "text", "label": "Review text" },
-    { "type": "text", "id": "name", "label": "Reviewer name" }
+    { "type": "text", "id": "name", "label": "Reviewer name" },
+    { "type": "text", "id": "photo_asset", "label": "Customer photo (theme asset filename, optional)" },
+    { "type": "text", "id": "initial", "label": "Avatar initial (shown when there is no photo, optional)" }
   ] }
 ], "presets": [{ "name": "Reviews" }] }
 {% endschema %}

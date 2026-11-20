@@ -45,12 +45,25 @@
   var navClose = document.getElementById('navClose'); if(navClose) navClose.addEventListener('click', closeNav);
   if(navScrim) navScrim.addEventListener('click', closeNav);
   if(navDrawer) navDrawer.addEventListener('click', function(e){ if(e.target.closest('a')) closeNav(); });
+  /* SHOP ALL dropdown (pack20) — hover/focus CSS se khulta hai; click/tap par .open toggle, sub-link click / bahar click / Escape par band */
+  var navDrop = document.querySelector('.nav-drop');
+  if(navDrop){
+    var dropToggle = navDrop.querySelector('.nav-drop-toggle');
+    function closeDrop(){ navDrop.classList.remove('open'); if(dropToggle) dropToggle.setAttribute('aria-expanded','false'); }
+    if(dropToggle) dropToggle.addEventListener('click', function(){ var o = navDrop.classList.toggle('open'); dropToggle.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+    navDrop.querySelectorAll('.nav-sub-link').forEach(function(l){ l.addEventListener('click', closeDrop); });
+    document.addEventListener('click', function(e){ if(!navDrop.contains(e.target)) closeDrop(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeDrop(); });
+  }
+  /* mobile drawer — SHOP ALL expandable group (pack20) */
+  var drawerShopToggle = document.getElementById('drawerShopToggle');
+  if(drawerShopToggle) drawerShopToggle.addEventListener('click', function(){ var g = drawerShopToggle.closest('.drawer-group'); var o = g ? g.classList.toggle('open') : false; drawerShopToggle.setAttribute('aria-expanded', o ? 'true' : 'false'); });
   /* logo click — FIX 12 (pack12): header aur drawer ke logos ASAL home links hain (header.liquid me href = routes.root_url) aur theme.js unhe bilkul NAHI rokta — yahan koi logo handler hi nahi. Kisi bhi page (Contact, product, policy page) par logo click = MAIN home page poori tarah load hota hai, bilkul wesay jesy website naye siray se kholi ho; home page par logo click = home page dobara load. Pack11 ka preventDefault + forced same-page refresh HATA diya gaya: us se logo WAHI page refresh kar deta tha jis par user hota tha, home nahi khulta tha. */
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* active nav highlight — scroll-spy (preview wale 6 tabs) */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#mainNav a, .drawer-links a'));
-  var MAP = { home:'HOME', shop:'SHOP ALL', reviews:'REVIEWS', about:'WHY FRAGAL', faq:'FAQ', contact:'CONTACT US' };
-  var secs = ['home','shop','reviews','about','faq','contact'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#mainNav a:not(.nav-sub-link), .drawer-links a:not(.nav-sub-link)'));
+  var MAP = { home:'HOME', shop:'SHOP ALL', reviews:'REVIEWS', faq:'FAQ', contact:'CONTACT US' };
+  var secs = ['home','shop','reviews','faq','contact'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
   var activeKey = 'HOME', spyLocked = false, unlockT = null, safetyT = null;
   function keyOf(a){ return a.textContent.trim().toUpperCase(); }
   function setActive(k){ if(!k) return; activeKey = k; navLinks.forEach(function(a){ a.classList.toggle('active', keyOf(a) === k); }); }
@@ -61,7 +74,7 @@
   window.addEventListener('scroll', function(){ if(spyLocked){ clearTimeout(unlockT); unlockT = setTimeout(unlock, 220); } if(ticking) return; ticking = true; requestAnimationFrame(function(){ ticking = false; spy(); }); }, { passive:true });
   window.addEventListener('resize', spy); spy();
   /* anchor scroll offset — nav links and in-page # buttons: the section heading must land BELOW the sticky header, never under it. Offset = actual header height + 16px gap (base.css scroll-margin-top keeps the same offset for direct hash landings). If the mobile header is hidden, show it first so the offset always matches the visible header. */
-  var ANCHOR_IDS = { home:1, shop:1, reviews:1, about:1, faq:1, contact:1 };
+  var ANCHOR_IDS = { home:1, shop:1, reviews:1, faq:1, contact:1 };
   function scrollToSection(id){
     var el = document.getElementById(id); if(!el) return;
     if(hdrEl) hdrEl.classList.remove('hdr-hide');
@@ -192,14 +205,14 @@
   var dotsWrap = document.getElementById('revDots');
   var index = 0, builtVisible = 0, curPhys = 0, pendingJump = null, jumpTimer = null;
   function visible(){ return window.innerWidth <= 700 ? 1 : 3; }
-  function maxIndex(){ return Math.max(0, cards.length - visible()); }
+  function maxIndex(){ return Math.max(0, cards.length - 1); }
   function allCards(){ return Array.prototype.slice.call(track.children); }
-  function cardW(){ return cards[0] ? cards[0].offsetWidth : 0; }
+  function cardW(){ if(cards.length > 1) return cards[1].offsetLeft - cards[0].offsetLeft; return cards[0] ? cards[0].offsetWidth : 0; }
   function physStart(logical){ return visible() + logical; }
   function buildClones(){
     allCards().forEach(function(c){ if(c.classList.contains('rev-clone')) track.removeChild(c); });
     var v = visible();
-    var prepend = cards.slice(maxIndex());
+    var prepend = cards.slice(cards.length - v);
     var append = cards.slice(0, v);
     append.forEach(function(c){ var cl = c.cloneNode(true); cl.classList.add('rev-clone'); cl.classList.remove('is-center'); cl.setAttribute('aria-hidden','true'); track.appendChild(cl); });
     for(var i = prepend.length - 1; i >= 0; i--){ var cl2 = prepend[i].cloneNode(true); cl2.classList.add('rev-clone'); cl2.classList.remove('is-center'); cl2.setAttribute('aria-hidden','true'); track.insertBefore(cl2, track.firstChild); }
@@ -230,19 +243,27 @@
     settlePending();
     var max = maxIndex();
     if(n > max){ index = 0; pendingJump = physStart(0); applyPos(visible() + cards.length, 0); jumpTimer = setTimeout(settlePending, 620); }
-    else if(n < 0){ index = max; pendingJump = physStart(max); applyPos(0, max); jumpTimer = setTimeout(settlePending, 620); }
+    else if(n < 0){ index = max; pendingJump = physStart(max); applyPos(visible() - 1, max); jumpTimer = setTimeout(settlePending, 620); }
     else { index = n; applyPos(physStart(index), index); }
   }
-  track.addEventListener('transitionend', function(e){ if(e.propertyName === 'transform') settlePending(); });
+  /* pack20 wrap fix: SIRF track ki apni transition par settle — .rev-card-in ke bubbled transitionend events wrap ko animation ke beech me jump kara dete the */
+  track.addEventListener('transitionend', function(e){ if(e.target !== track) return; if(e.propertyName === 'transform') settlePending(); });
   function refresh(){ if(jumpTimer){ clearTimeout(jumpTimer); jumpTimer = null; } pendingJump = null; if(builtVisible !== visible()) buildClones(); buildDots(); goTo(index); }
   window.addEventListener('resize', refresh);
   window.addEventListener('load', refresh);
   buildClones(); refresh();
   var dragId = null, dragStartX = 0, dragDX = 0, SWIPE_MIN = 45;
   function baseX(){ return -curPhys * cardW(); }
-  viewport.addEventListener('pointerdown', function(e){ if(dragId !== null) return; settlePending(); dragId = e.pointerId; dragStartX = e.clientX; dragDX = 0; track.classList.add('dragging'); if(viewport.setPointerCapture){ try{ viewport.setPointerCapture(e.pointerId); }catch(err){} } });
+  viewport.addEventListener('pointerdown', function(e){ if(e.pointerType === 'touch') return; if(dragId !== null) return; settlePending(); dragId = e.pointerId; dragStartX = e.clientX; dragDX = 0; track.classList.add('dragging'); if(viewport.setPointerCapture){ try{ viewport.setPointerCapture(e.pointerId); }catch(err){} } });
   viewport.addEventListener('pointermove', function(e){ if(dragId === null || e.pointerId !== dragId) return; dragDX = e.clientX - dragStartX; track.style.transform = 'translateX(' + (baseX() + dragDX) + 'px)'; });
   function endDrag(e){ if(dragId === null || (e && e.pointerId !== dragId)) return; dragId = null; track.classList.remove('dragging'); var dx = dragDX; dragDX = 0; if(dx <= -SWIPE_MIN) goTo(index + 1); else if(dx >= SWIPE_MIN) goTo(index - 1); else goTo(index); }
   viewport.addEventListener('pointerup', endDrag);
   viewport.addEventListener('pointercancel', endDrag);
+  /* TOUCH SWIPE (pack19) — mobile par asal touch events: pointer events kuch mobile browsers me touch par reliably fire nahi hote the, is liye reviews swipe mobile par nahi chalta tha. Horizontal gesture par track ungli ke sath chalta hai aur page scroll rukta hai; vertical gesture par carousel nahi chherta. */
+  var tId = null, tStartX = 0, tStartY = 0, tDX = 0, tAxis = null;
+  viewport.addEventListener('touchstart', function(e){ if(tId !== null || e.touches.length !== 1) return; settlePending(); var t = e.touches[0]; tId = t.identifier; tStartX = t.clientX; tStartY = t.clientY; tDX = 0; tAxis = null; }, { passive:true });
+  viewport.addEventListener('touchmove', function(e){ if(tId === null) return; var t = null; for(var i = 0; i < e.changedTouches.length; i++){ if(e.changedTouches[i].identifier === tId) t = e.changedTouches[i]; } if(!t) return; var dx = t.clientX - tStartX, dy = t.clientY - tStartY; if(tAxis === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) tAxis = Math.abs(dx) >= Math.abs(dy) ? 'x' : 'y'; if(tAxis !== 'x') return; if(e.cancelable) e.preventDefault(); tDX = dx; track.classList.add('dragging'); track.style.transform = 'translateX(' + (baseX() + dx) + 'px)'; }, { passive:false });
+  function endTouch(e){ if(tId === null) return; var found = false; for(var i = 0; i < e.changedTouches.length; i++){ if(e.changedTouches[i].identifier === tId) found = true; } if(!found) return; tId = null; track.classList.remove('dragging'); var dx = tDX; tDX = 0; tAxis = null; if(dx <= -SWIPE_MIN) goTo(index + 1); else if(dx >= SWIPE_MIN) goTo(index - 1); else if(dx !== 0) goTo(index); }
+  viewport.addEventListener('touchend', endTouch);
+  viewport.addEventListener('touchcancel', endTouch);
 })();
