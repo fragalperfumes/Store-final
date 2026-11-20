@@ -14,6 +14,7 @@
 {{ 'base.css' | asset_url | stylesheet_tag }}
 {% if template.name == 'index' %}<link rel="preload" as="image" media="(min-width: 701px)" href="{{ 'hero-zaran-768w-v16.webp' | asset_url }}" imagesrcset="{{ 'hero-zaran-480w-v16.webp' | asset_url }} 480w, {{ 'hero-zaran-768w-v16.webp' | asset_url }} 768w, {{ 'hero-zaran-941x1672-v1.webp' | asset_url }} 941w, {{ 'hero-zaran-1400x2000-v1.webp' | asset_url }} 1400w" imagesizes="(max-width: 1080px) 92vw, 560px" fetchpriority="high"><link rel="preload" as="image" media="(max-width: 700px)" href="{{ 'hero-zaran-mobile-1280x720-v2.webp' | asset_url }}" fetchpriority="high">{% endif %}
 <style>:root{--green:{{ settings.color_green }};--green-2:{{ settings.color_green }};--gold:{{ settings.color_gold }};--gold-2:#9c7c2e;--gold-deep:#a8823f}</style>
+<link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0605/7299/1568/files/Golden_Perfume_Bottle_Monogram.png?v=1793825750">
 </head>
 <body>
 {% section 'announcement-bar' %}
