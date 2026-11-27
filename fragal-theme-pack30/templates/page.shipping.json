@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-shipping",
+        "crumb": "Shipping Policy",
+        "head_html": "<div class=\"pv-head\"><h1>SHIPPING POLICY</h1><div class=\"gold-rule\"></div></div>",
+        "body_html": "<div class=\"pv-prose\">\n  <h3>Cash on Delivery</h3>\n  <p>Cash on Delivery is available across Pakistan — pay when your order arrives at your door.</p>\n  <h3>Shipping Charges</h3>\n  <p>Shipping is FREE on all orders over Rs. 4,000.</p>\n  <h3>Delivery Time</h3>\n  <p>Orders are delivered within 3–5 days across Pakistan.</p>\n</div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

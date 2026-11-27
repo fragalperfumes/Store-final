@@ -1,0 +1,26 @@
+<div class="page-wrap">
+  <h1>Your Cart</h1>
+  {% if cart.item_count == 0 %}
+    <p class="rte">Your cart is currently empty.</p>
+    <p style="margin-top:18px"><a class="btn btn-gold" href="{{ routes.root_url }}">SHOP ZARAN</a></p>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post">
+      <div class="cart-page-items">
+        {% for item in cart.items %}
+        <div class="cart-item">
+          {% if item.image %}<img src="{{ item.image | image_url: width: 200 }}" alt="">{% endif %}
+          <div style="flex:1;min-width:0">
+            <h4>{{ item.product.title }}</h4>
+            <p>{{ item.final_price | money }}</p>
+            <div class="row2"><input class="shopify-input" style="width:90px;margin:0" type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity"><b style="color:var(--gold-2)">{{ item.final_line_price | money }}</b></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="cart-page-total"><span>Total</span><b>{{ cart.total_price | money }}</b></div>
+      <button class="btn btn-outline" type="submit" name="update">UPDATE CART</button>
+      <button class="btn btn-gold" type="submit" name="checkout" style="margin-left:10px">CHECKOUT</button>
+    </form>
+  {% endif %}
+</div>
+{% schema %}{ "name": "Main cart", "settings": [] }{% endschema %}

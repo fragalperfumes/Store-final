@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-exchange",
+        "crumb": "Exchange Policy",
+        "head_html": "<div class=\"pv-head\"><h1>EXCHANGE POLICY</h1><div class=\"gold-rule\"></div></div>",
+        "body_html": "<div class=\"pv-prose\">\n  <p>At Fragal Perfumes, your satisfaction matters. We offer a smooth and easy exchange process.</p>\n  <h3>Exchange Eligibility:</h3>\n  <ul>\n    <li>You can request an exchange within 15 days of delivery.</li>\n    <li>The product must have at least 90% remaining, in its original condition and packaging.</li>\n  </ul>\n  <h3>Exchange Process:</h3>\n  <ul>\n    <li>To initiate an exchange, contact us on WhatsApp: <a href=\"https://wa.me/923084456947\" target=\"_blank\" rel=\"noopener\">+92 308 4456947</a>.</li>\n    <li>Our team will guide you through the process.</li>\n    <li>Exchanges are usually processed within 7 working days after we receive the returned product.</li>\n  </ul>\n  <h3>Delivery Charges:</h3>\n  <ul>\n    <li>Customers are responsible for exchange delivery charges.</li>\n    <li>In case of a damaged, leaked or wrong product, we will cover all delivery costs.</li>\n  </ul>\n</div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

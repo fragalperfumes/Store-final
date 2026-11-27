@@ -1,0 +1,22 @@
+<div class="wrap screen cta-screen">
+  <section class="cta-banner">
+    {% if section.settings.image != blank %}<img class="bg" src="{{ section.settings.image | image_url: width: 1200 }}" srcset="{{ section.settings.image | image_url: width: 820 }} 820w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 2000 }} 2000w" sizes="(max-width: 700px) 100vw, 1232px" alt="" aria-hidden="true" loading="lazy">
+    {% else %}<img class="bg" src="{{ 'cta-banner-1200w-v16.webp' | asset_url }}" srcset="{{ 'cta-banner-820w-v16.webp' | asset_url }} 820w, {{ 'cta-banner-1200w-v16.webp' | asset_url }} 1200w, {{ 'cta-banner-zaran-right-v3.webp' | asset_url }} 1920w" sizes="(max-width: 700px) 100vw, 1232px" alt="" aria-hidden="true" loading="lazy">{% endif %}
+    <div class="shade"></div>
+    <div class="cta-in">
+      <h2>DISCOVER YOUR<br><span class="gold">SIGNATURE</span><br>FRAGRANCE</h2>
+      <p>One scent. Worn with intent. Make ZARAN 50ML yours — now PKR 2,499, saving 38%.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center">
+        <a class="btn btn-gold" href="#shop">SHOP ZARAN
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <span class="cta-price">PKR 3,999 &nbsp;&rarr;&nbsp; <b>PKR 2,499</b></span>
+      </div>
+    </div>
+  </section>
+</div>
+{% schema %}
+{ "name": "CTA banner", "settings": [
+  { "type": "image_picker", "id": "image", "label": "Background photo (leave empty to use the theme asset)" }
+], "presets": [{ "name": "CTA banner" }] }
+{% endschema %}

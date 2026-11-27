@@ -1,0 +1,56 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Fragal Perfumes",
+    "theme_version": "2.0.0",
+    "theme_author": "Hashim Web Studio",
+    "theme_documentation_url": "https://fragalperfumes.pk",
+    "theme_support_url": "https://fragalperfumes.pk"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_green",
+        "label": "Deep green (marquee)",
+        "default": "#0a3d2b"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Gold accent",
+        "default": "#c8a45d"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#1e1c17"
+      }
+    ]
+  },
+  {
+    "name": "Store",
+    "settings": [
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp number (international, digits only)",
+        "default": "923084456947"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_display",
+        "label": "WhatsApp number (display)",
+        "default": "+92 308 4456947"
+      }
+    ]
+  }
+]

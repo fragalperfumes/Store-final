@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "fragal-page",
+      "settings": {
+        "page_anchor": "page-about",
+        "crumb": "About Us",
+        "head_html": "<div class=\"pv-head\"><p class=\"ab-eyebrow\"><span class=\"rule\"></span>OUR STORY<span class=\"rule\"></span></p><h1>ABOUT US</h1><h2 class=\"ab-heading\">The House of Fragal</h2><div class=\"gold-rule\"></div><p>FRAGAL is a Pakistani fragrance house built on a simple belief — a scent should stay. On your clothes, in the room, and in memory, long after you have left. Our tagline is our promise: Scents That Stay.</p></div>",
+        "body_html": "<div class=\"pv-prose\">\n  <div class=\"ab-sec ab-sec-first\">\n    <h3>Our Beginning</h3>\n    <p>Fragal began with a single creation: ZARAN. Instead of launching with a shelf full of fragrances, we poured everything into one — a fresh &amp; floral signature for men, crafted with 40% perfume concentration to linger for 8+ hours on clothes. We believe one fragrance, done properly, says more than ten done in haste.</p>\n  </div>\n  <div class=\"ab-sec\">\n    <h3>What We Stand For</h3>\n    <div class=\"ab-values\">\n      <div class=\"ab-value\"><span class=\"ab-num\">01</span><h4>Scents That Stay</h4><p>Longevity is our signature. ZARAN is made to stay noticeable for 8+ hours, sprayed on clothes — living up to the name on the bottle.</p></div>\n      <div class=\"ab-value\"><span class=\"ab-num\">02</span><h4>No Inflated Claims</h4><p>We say what we mean. No invented fragrance notes, no fake reviews, no borrowed luxury. What you read on this website is what we stand behind.</p></div>\n      <div class=\"ab-value\"><span class=\"ab-num\">03</span><h4>Made in Pakistan</h4><p>A Pakistani house with honest Pakistani pricing — premium craft without the imported price tag.</p></div>\n      <div class=\"ab-value\"><span class=\"ab-num\">04</span><h4>Direct &amp; Personal</h4><p>Message us on WhatsApp before and after your order. Quick answers from real people, no ticket queues.</p></div>\n    </div>\n  </div>\n  <div class=\"ab-sec\">\n    <h3>Meet the Founder</h3>\n    <p>Fragal was founded by Hashim, on the belief that Pakistan deserves its own luxury fragrance house — one that competes on craft, not on markup. From the scent to the box to the bag, every detail carries his eye.</p>\n  </div>\n  <div class=\"ab-promise\">\n    <h3>Our Promise</h3>\n    <p>One fragrance at a time. Honest craft. Fair prices. Scents that stay.</p>\n  </div>\n</div>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

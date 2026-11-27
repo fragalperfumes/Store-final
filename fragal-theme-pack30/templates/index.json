@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-brand",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-product",
+      "settings": {
+        "heading": "BEST SELLER PERFUME"
+      }
+    },
+    "offer": {
+      "type": "offer-banner",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "text": "I have just recievd This Fragal\nIts really Pure Decent Fragnance\nIts Strongly Referable",
+            "name": "M Waqas",
+            "photo_asset": "review-waqas-2026-11-21.png"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "text": "Lasting kaafi ache hy .\nFragrance I loved it ...\nValue to Money 👍",
+            "name": "Jahangir Ahmed",
+            "photo_asset": "review-jahangir-2026-11-21.png"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "text": "Wonderful fragrance and its projection and lasting worths appreciation",
+            "name": "Muhammad Salman",
+            "initial": "MS"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-section",
+      "blocks": {
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I spray ZARAN directly on my skin?",
+            "answer": "Do not spray ZARAN directly on your skin. Spray it on your clothes only — collar, chest or sleeves. It sits better on fabric and stays longer."
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "What is your refund policy?",
+            "answer": "Easy 15-day refund. The bottle must have at least 90% of the perfume remaining — message us on WhatsApp to start your return."
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does the fragrance last?",
+            "answer": "ZARAN is made to linger — sprayed on clothes, it stays noticeable for 8+ hours, living up to our promise: Scents That Stay."
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "How can I place an order?",
+            "answer": "Tap ADD TO CART or BUY NOW on the ZARAN card above."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "offer",
+    "featured",
+    "reviews",
+    "faq",
+    "cta"
+  ]
+}
